@@ -1,0 +1,70 @@
+#!/bin/bash
+
+BASE_DIR="$HOME/sentinel_preflight"
+RUN_ID=$(date +"%Y%m%d_%H%M%S")
+RUN_DIR="$BASE_DIR/run_$RUN_ID"
+MASTER_LOG="$RUN_DIR/preflight_report.log"
+
+mkdir -p "$RUN_DIR"
+
+echo "===== Sentinel Preflight Check =====" | tee -a "$MASTER_LOG"
+echo "Run ID: $RUN_ID" | tee -a "$MASTER_LOG"
+echo "Logs: $RUN_DIR" | tee -a "$MASTER_LOG"
+echo "" | tee -a "$MASTER_LOG"
+
+run_check () {
+    NUM=$1
+    NAME=$2
+    CMD=$3
+    OUTFILE="$RUN_DIR/${NUM}_${NAME}.log"
+
+    echo "Check $NUM: $NAME" | tee -a "$MASTER_LOG"
+
+    if eval "$CMD" > "$OUTFILE" 2>&1; then
+        echo "✔ Success" | tee -a "$MASTER_LOG"
+    else
+        echo "⚠ Failed but continuing" | tee -a "$MASTER_LOG"
+    fi
+
+    echo "Log: $OUTFILE" | tee -a "$MASTER_LOG"
+    echo "" | tee -a "$MASTER_LOG"
+}
+
+# 1 System info
+run_check 1 system_info "uname -a"
+
+# 2 OS details
+run_check 2 os_release "cat /etc/os-release"
+
+# 3 Disk layout
+run_check 3 disk_layout "lsblk"
+
+# 4 Mounted drives
+run_check 4 mounted_drives "df -h"
+
+# 5 Network interfaces
+run_check 5 network_interfaces "ip a"
+
+# 6 WiFi device check
+run_check 6 wifi_devices "iw dev"
+
+# 7 Network manager state
+run_check 7 network_manager "nmcli general status"
+
+# 8 Wireless scan test
+run_check 8 wifi_scan "nmcli dev wifi list"
+
+# 9 Bluetooth hardware
+run_check 9 bluetooth_status "hciconfig"
+
+# 10 USB devices
+run_check 10 usb_devices "lsusb"
+
+# 11 PCI devices
+run_check 11 pci_devices "lspci"
+
+# 12 Kernel messages
+run_check 12 kernel_messages "dmesg | tail -n 50"
+
+echo "===== Preflight Complete =====" | tee -a "$MASTER_LOG"
+echo "Logs stored in $RUN_DIR"
