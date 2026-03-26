@@ -1,0 +1,31 @@
+#!/bin/bash
+
+DIR="$HOME/sentinel_contacts"
+mkdir -p "$DIR"
+
+LOG="$DIR/contact_log.txt"
+COUNT="$DIR/contact_counts.txt"
+
+echo "=== Scan $(date) ===" >> "$LOG"
+
+ip neigh | while read line
+do
+    ip=$(echo $line | awk '{print $1}')
+    mac=$(echo $line | awk '{print $5}')
+
+    echo "$ip $mac" >> "$LOG"
+
+    grep -q "$mac" "$COUNT" 2>/dev/null
+
+    if [ $? -eq 0 ]; then
+        awk -v m="$mac" '
+        $1==m {$2++}
+        {print}
+        ' "$COUNT" > "$COUNT.tmp" && mv "$COUNT.tmp" "$COUNT"
+    else
+        echo "$mac 1" >> "$COUNT"
+    fi
+
+done
+
+echo "Contact frequency updated."
