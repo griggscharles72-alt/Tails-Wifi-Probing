@@ -1,0 +1,28 @@
+LOG="$HOME/sentinel_followup2_$(date +%Y%m%d_%H%M%S).log"; \
+echo "===== SENTINEL FOLLOW-UP LOG =====" > "$LOG"; \
+echo "TIME: $(date)" >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- INTERFACES ----" >> "$LOG"; \
+ip a >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ROUTING ----" >> "$LOG"; \
+ip route >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ACTIVE CONNECTIONS ----" >> "$LOG"; \
+ss -tupn >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- SOCKET OWNERS ----" >> "$LOG"; \
+ss -tulpn >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- PORT 951 CHECK ----" >> "$LOG"; \
+ss -tulpn | grep 951 >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- LOCAL NETWORK NEIGHBORS ----" >> "$LOG"; \
+ip neigh >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOR IDENTITY CHECK ----" >> "$LOG"; \
+torsocks curl -s https://check.torproject.org | grep -i "IP address" >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOP PROCESSES ----" >> "$LOG"; \
+ps aux --sort=-%cpu | head >> "$LOG"; \
+echo "Log saved to: $LOG"
