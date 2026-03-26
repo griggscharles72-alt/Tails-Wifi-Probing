@@ -1,0 +1,33 @@
+==== Scan Thu Mar 26 11:35:27 AM UTC 2026 ====
+NEW AP: MyAltice 147295 (A4:CF:D2:14:72:99) signal:100 chan:149 sec:WPA2
+NEW AP: MyAltice 147295 (A4:CF:D2:14:72:98) signal:95 chan:11 sec:WPA2
+NEW AP: CalieWifi (A0:ED:6D:E4:6F:50) signal:92 chan:11 sec:WPA2
+NEW AP: CalieWifi (A0:ED:6D:E4:6F:51) signal:82 chan:44 sec:WPA2
+NEW AP:  (A2:ED:6D:E4:6F:54) signal:82 chan:44 sec:WPA3
+NEW AP: MyOptimum c323e9 (5C:53:C3:C3:23:EC) signal:64 chan:11 sec:WPA2
+NEW AP: MyOptimum 18d471 (94:4E:5B:18:D4:74) signal:62 chan:1 sec:WPA2
+NEW AP: BLINK-4LMM (74:AB:93:A7:7B:19) signal:60 chan:6 sec:
+NEW AP: Marco (A4:CF:D2:C8:2E:2A) signal:57 chan:11 sec:WPA2
+NEW AP: Marco (A4:CF:D2:C8:2E:2B) signal:52 chan:149 sec:WPA2
+NEW AP:  (A6:CF:D2:C8:2E:36) signal:52 chan:149 sec:WPA3
+NEW AP:  (E2:3E:CB:6B:3E:EB) signal:44 chan:44 sec:WPA2
+NEW AP: MyOptimum 1360b1 (94:4E:5B:13:60:B4) signal:40 chan:1 sec:WPA2
+NEW AP:  (12:59:32:DA:51:3C) signal:39 chan:48 sec:WPA2
+NEW AP: Brumfield-5G (28:80:88:1F:63:C7) signal:39 chan:153 sec:WPA2
+==== Scan Thu Mar 26 11:37:34 AM UTC 2026 ====
+NEW AP:  (A6:CF:D2:14:72:9C) signal:100 chan:149 sec:WPA3
+NEW AP: MyAltice 147295 (A4:CF:D2:14:72:98) signal:97 chan:11 sec:WPA2
+NEW AP: CalieWifi (A0:ED:6D:E4:6F:50) signal:95 chan:11 sec:WPA2
+NEW AP: CalieWifi (A0:ED:6D:E4:6F:51) signal:85 chan:44 sec:WPA2
+NEW AP:  (A2:ED:6D:E4:6F:54) signal:85 chan:44 sec:WPA3
+NEW AP: MyAltice 147295 (A4:CF:D2:14:72:99) signal:77 chan:149 sec:WPA2
+NEW AP: MyOptimum 18d471 (94:4E:5B:18:D4:74) signal:69 chan:1 sec:WPA2
+NEW AP: BLINK-4LMM (74:AB:93:A7:7B:19) signal:60 chan:6 sec:
+NEW AP: Marco (A4:CF:D2:C8:2E:2A) signal:57 chan:11 sec:WPA2
+NEW AP: Marco (A4:CF:D2:C8:2E:2B) signal:50 chan:149 sec:WPA2
+NEW AP:  (A6:CF:D2:C8:2E:36) signal:50 chan:149 sec:WPA3
+NEW AP:  (E2:3E:CB:6B:3E:EB) signal:44 chan:44 sec:WPA2
+NEW AP: MyOptimum 68a197 (5C:53:C3:68:A1:9A) signal:40 chan:1 sec:WPA2
+NEW AP:  (12:59:32:DA:51:3C) signal:39 chan:48 sec:WPA2
+NEW AP: Brumfield-5G (28:80:88:1F:63:C7) signal:37 chan:153 sec:WPA2
+NEW AP: MyOptimum 1360b1 (94:4E:5B:13:60:B4) signal:35 chan:1 sec:WPA2
