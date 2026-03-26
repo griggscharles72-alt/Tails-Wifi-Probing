@@ -1,0 +1,191 @@
+===== SENTINEL DEEP LOG =====
+TIME: Thu Mar 26 01:53:01 AM UTC 2026
+
+---- TOR EXIT IP ----
+  <p>Your IP address appears to be:  <strong>192.121.44.27</strong></p>
+
+---- NETWORK INTERFACES ----
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host proto kernel_lo 
+       valid_lft forever preferred_lft forever
+3: veth-tbb@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 7e:a6:a0:88:9e:25 brd ff:ff:ff:ff:ff:ff link-netns tbb
+    inet 10.200.1.1/30 scope global veth-tbb
+       valid_lft forever preferred_lft forever
+5: veth-onioncircs@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 2e:3a:93:5f:46:0f brd ff:ff:ff:ff:ff:ff link-netns onioncircs
+    inet 10.200.1.5/30 scope global veth-onioncircs
+       valid_lft forever preferred_lft forever
+7: veth-tca@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 7a:e0:c7:1c:9d:20 brd ff:ff:ff:ff:ff:ff link-netns tca
+    inet 10.200.1.9/30 scope global veth-tca
+       valid_lft forever preferred_lft forever
+9: veth-onionshare@if8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 52:dc:cb:b6:ce:03 brd ff:ff:ff:ff:ff:ff link-netns onionshare
+    inet 10.200.1.13/30 scope global veth-onionshare
+       valid_lft forever preferred_lft forever
+11: veth-clearnet@if10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 0e:6c:c8:5b:12:9a brd ff:ff:ff:ff:ff:ff link-netns clearnet
+    inet 10.200.1.17/30 scope global veth-clearnet
+       valid_lft forever preferred_lft forever
+12: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 84:a9:3e:be:3d:92 brd ff:ff:ff:ff:ff:ff permaddr 84:a9:3e:7a:a8:14
+13: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether ac:d5:64:3b:d8:36 brd ff:ff:ff:ff:ff:ff permaddr ac:d5:64:0d:be:73
+    inet 192.168.1.13/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 2380sec preferred_lft 2380sec
+    inet6 fe80::5191:bd66:7a7a:2e7b/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+14: wlan1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 54:07:7d:66:7c:7e brd ff:ff:ff:ff:ff:ff permaddr 54:07:7d:9b:b6:2b
+    inet 192.168.1.145/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan1
+       valid_lft 2742sec preferred_lft 2742sec
+    inet6 fe80::7e35:90af:7425:5c2a/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+---- ROUTING TABLE ----
+default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.13 metric 600 
+default via 192.168.1.1 dev wlan1 proto dhcp src 192.168.1.145 metric 601 
+10.200.1.0/30 dev veth-tbb proto kernel scope link src 10.200.1.1 
+10.200.1.4/30 dev veth-onioncircs proto kernel scope link src 10.200.1.5 
+10.200.1.8/30 dev veth-tca proto kernel scope link src 10.200.1.9 
+10.200.1.12/30 dev veth-onionshare proto kernel scope link src 10.200.1.13 
+10.200.1.16/30 dev veth-clearnet proto kernel scope link src 10.200.1.17 
+192.168.1.0/24 dev wlan0 proto kernel scope link src 192.168.1.13 metric 600 
+192.168.1.0/24 dev wlan1 proto kernel scope link src 192.168.1.145 metric 601 
+
+---- ACTIVE CONNECTIONS ----
+Netid State Recv-Q Send-Q       Local Address:Port    Peer Address:Port Process
+udp   ESTAB 0      0      192.168.1.145%wlan1:68       192.168.1.1:67          
+udp   ESTAB 0      0       192.168.1.13%wlan0:68       192.168.1.1:67          
+tcp   ESTAB 0      0                127.0.0.1:9052       127.0.0.1:51256       
+tcp   ESTAB 0      1586          192.168.1.13:39194 162.19.244.234:443         
+tcp   ESTAB 0      536           192.168.1.13:53364 51.195.118.232:9000        
+tcp   ESTAB 0      0                127.0.0.1:9052       127.0.0.1:51252       
+tcp   ESTAB 0      0               10.200.1.1:9050      10.200.1.2:42464       
+tcp   ESTAB 0      0                127.0.0.1:51256      127.0.0.1:9052        
+tcp   ESTAB 0      0                127.0.0.1:51252      127.0.0.1:9052        
+tcp   ESTAB 0      0               10.200.1.1:951       10.200.1.2:53466       
+tcp   ESTAB 0      0               10.200.1.1:9050      10.200.1.2:57456       
+
+---- LISTENING PORTS ----
+Netid State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0          127.0.0.1:5353      0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.1:631       0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.1:9052      0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.1:9050      0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.1:9040      0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.1:9062      0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.1:9063      0.0.0.0:*          
+tcp   LISTEN 0      4096      10.200.1.1:9050      0.0.0.0:*          
+tcp   LISTEN 0      5            0.0.0.0:951       0.0.0.0:*          
+
+---- ARP TABLE ----
+192.168.1.1 dev wlan0 lladdr a4:cf:d2:14:72:97 REACHABLE 
+10.200.1.10 dev veth-tca lladdr 32:1c:b5:9f:ce:5a STALE 
+192.168.1.1 dev wlan1 lladdr a4:cf:d2:14:72:97 STALE 
+10.200.1.2 dev veth-tbb lladdr fa:d6:8b:26:86:e1 REACHABLE 
+
+---- DNS CONFIG ----
+nameserver 127.0.0.1
+
+---- TOR PROCESS ----
+root         309  0.0  0.0      0     0 ?        S    Mar25   0:01 [usb-storage]
+amnesia     9376  0.0  0.0 260120 10164 ?        Ssl  Mar25   0:00 /usr/bin/gnome-keyring-daemon --foreground --components=pkcs11,secrets --control-directory=/run/user/1000/keyring
+amnesia     9377  0.0  0.0 164244  5340 ?        Ssl  Mar25   0:00 /usr/libexec/gnome-session-ctl --monitor
+amnesia     9523  0.0  0.0 385740  6856 ?        Ssl  Mar25   0:00 /usr/libexec/xdg-permission-store
+amnesia     9672  0.0  0.0 468104 11752 ?        Ssl  Mar25   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+amnesia     9813  0.0  0.0 384928  7020 ?        Ssl  Mar25   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+amnesia     9823  0.0  0.1 409492 21088 ?        Ssl  Mar25   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+amnesia     9829  0.0  0.0 384824  6936 ?        Ssl  Mar25   0:00 /usr/libexec/gvfs-goa-volume-monitor
+amnesia     9859  0.0  0.0 467516 10032 ?        Ssl  Mar25   0:00 /usr/libexec/gvfs-afc-volume-monitor
+root       10868  0.0  0.0  97408  7848 ?        S    Mar25   0:00 sudo /usr/local/lib/tails-run-tor-browser-in-flatpak @@u @@
+root       10900  0.0  0.0  97592  7928 ?        S    Mar25   0:00 sudo -u amnesia -- /usr/local/lib/run-with-env --env-file=/home/amnesia/.tor-browser/profile.default/tmp/tmp.KzIl1GDTj3-env --delete -- flatpak --installation=tails run --allow=unconfined --file-forwarding --command=tor-browser org.boum.tails.TorBrowser @@u @@
+amnesia    10903  0.0  0.0   3572  2060 ?        S    Mar25   0:00 bwrap --args 31 -- tor-browser
+amnesia    10919  0.0  0.0   3580  1476 ?        S    Mar25   0:00 bwrap --args 31 -- tor-browser
+amnesia    10921 22.8  3.9 4400008 639168 ?      Sl   Mar25  87:31 /usr/local/lib/tor-browser/firefox.real -allow-remote -profile /home/amnesia/.tor-browser/profile.default
+amnesia    11108  0.0  0.2 218992 43096 ?        Sl   Mar25   0:00 /usr/local/lib/tor-browser/firefox.real -contentproc -parentBuildID 20260223093000 -prefsHandle 0:26247 -prefMapHandle 1:268723 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {2e9487b3-96af-4356-a174-ff028c2c0f8e} -parentPid 2 -appDir /usr/local/lib/tor-browser/browser 1 socket
+amnesia    11192 12.6  0.3 475596 61940 ?        Sl   Mar25  48:30 /usr/local/lib/tor-browser/firefox.real -contentproc -parentBuildID 20260223093000 -prefsHandle 0:27885 -prefMapHandle 1:268723 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {ce228a3d-8c8c-4a45-a5de-9de94cb39a82} -parentPid 2 -appDir /usr/local/lib/tor-browser/browser 3 rdd
+amnesia    11296  3.5  0.3 369336 63324 ?        Sl   Mar25  13:31 /usr/local/lib/tor-browser/firefox.real -contentproc -parentBuildID 20260223093000 -sandboxingKind 0 -prefsHandle 0:29829 -prefMapHandle 1:268723 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {574db37f-edbe-42c7-a60b-e160ba43de4c} -parentPid 2 -appDir /usr/local/lib/tor-browser/browser 5 utility
+debian-+   14551  0.5  0.6 580296 111160 ?       Ssl  Mar25   2:10 /usr/bin/tor --defaults-torrc /usr/share/tor/tor-service-defaults-torrc -f /etc/tor/torrc --RunAsDaemon 0
+amnesia    14631  0.5  1.0 19735176 175216 ?     Sl   Mar25   2:04 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:30979 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {cab62eb3-d764-489a-aac8-88037198ed38} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 22 tab
+amnesia    33232 10.2  3.6 3238524 593264 ?      Sl   00:24   9:01 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {aab650e6-204c-4f07-ab74-085107f77a5c} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 71 tab
+amnesia    33485  0.0  0.7 2499332 123260 ?      Sl   00:27   0:03 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {34824d9d-919a-4a7f-b2fd-15c9a0218cc9} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 74 tab
+amnesia    34739  0.0  0.7 2492568 115536 ?      Sl   00:46   0:01 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {11c30a2c-3891-41e1-a3ba-8f9536052034} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 91 tab
+amnesia    34801  0.0  1.0 2595264 174036 ?      Sl   00:47   0:03 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {f248ffca-eee4-40c4-ad3c-3f1e68e0e331} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 92 tab
+amnesia    34879  0.2  1.2 2660048 199660 ?      Sl   00:48   0:08 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {dec14076-a7dc-418d-93fd-a429740687ae} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 93 tab
+amnesia    36625  0.0  0.7 2492828 113416 ?      Sl   01:40   0:00 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {1f46830f-a3d2-4e4e-a7f2-e1f2f7abf1ee} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 105 tab
+amnesia    37138  0.0  0.5 2461220 84656 ?       Sl   01:43   0:00 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {a2bdd78b-3992-4019-981c-f37de1dc48e1} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 112 tab
+amnesia    37178  0.0  0.5 2461220 85492 ?       Sl   01:43   0:00 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {8866923e-37aa-4cc3-a2e9-6d3caeebf4e8} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 113 tab
+amnesia    37218  0.0  0.5 2461220 82144 ?       Sl   01:43   0:00 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {ff652e66-ef8b-4e8b-a14f-6b59556311af} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 114 tab
+amnesia    37382  0.9  0.9 1971456 154704 ?      Sl   01:48   0:02 /usr/bin/gnome-text-editor /home/amnesia/sentinel_session_20260326_012245.log
+amnesia    37533  0.0  0.0  83524  2420 pts/0    S+   01:53   0:00 grep --color=auto tor
+
+---- NETWORK PROCESSES ----
+
+---- RECENT SYSTEM LOGS ----
+Mar 26 01:46:00 amnesia sudo[37260]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:46:00 amnesia sudo[37260]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:46:00 amnesia sudo[37260]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:47:00 amnesia sudo[37301]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:47:00 amnesia sudo[37301]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:47:00 amnesia sudo[37301]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:47:00 amnesia sudo[37304]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:47:00 amnesia sudo[37304]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:47:00 amnesia sudo[37304]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:48:00 amnesia sudo[37323]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:48:00 amnesia sudo[37323]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:48:00 amnesia sudo[37323]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:48:00 amnesia sudo[37328]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:48:00 amnesia sudo[37328]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:48:00 amnesia sudo[37328]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:48:18 amnesia dbus-daemon[7142]: [session uid=1000 pid=7142 pidfd=5] Activating service name='org.gnome.Nautilus' requested by ':1.33' (uid=1000 pid=9466 comm="/usr/bin/gnome-shell")
+Mar 26 01:48:18 amnesia nautilus[37335]: Connecting to org.freedesktop.Tracker3.Miner.Files
+Mar 26 01:48:18 amnesia dbus-daemon[7142]: [session uid=1000 pid=7142 pidfd=5] Successfully activated service 'org.gnome.Nautilus'
+Mar 26 01:49:00 amnesia sudo[37429]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:49:00 amnesia sudo[37429]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:49:00 amnesia sudo[37429]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:49:00 amnesia sudo[37432]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:49:00 amnesia sudo[37432]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:49:00 amnesia sudo[37432]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:50:00 amnesia sudo[37442]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:50:00 amnesia sudo[37442]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:50:00 amnesia sudo[37442]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:50:00 amnesia sudo[37445]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:50:00 amnesia sudo[37445]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:50:00 amnesia sudo[37445]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:51:00 amnesia sudo[37456]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:51:00 amnesia sudo[37456]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:51:00 amnesia sudo[37456]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:51:00 amnesia sudo[37459]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:51:00 amnesia sudo[37459]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:51:00 amnesia sudo[37459]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:52:00 amnesia sudo[37469]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:52:00 amnesia sudo[37469]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:52:00 amnesia sudo[37469]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:52:00 amnesia sudo[37472]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:52:00 amnesia sudo[37472]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:52:00 amnesia sudo[37472]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:52:16 amnesia gnome-text-edit[37382]: (../../../gtk/gtkimcontextwayland.c:367):notify_surrounding_text: code should not be reached
+Mar 26 01:52:16 amnesia gnome-text-edit[37382]: (../../../gtk/gtkimcontextwayland.c:367):notify_surrounding_text: code should not be reached
+Mar 26 01:53:00 amnesia sudo[37491]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:53:00 amnesia sudo[37491]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:53:00 amnesia sudo[37491]: pam_unix(sudo:session): session closed for user root
+Mar 26 01:53:00 amnesia sudo[37496]:  amnesia : PWD=/home/amnesia ; USER=root ; COMMAND=/usr/local/lib/tails-get-date
+Mar 26 01:53:00 amnesia sudo[37496]: pam_unix(sudo:session): session opened for user root(uid=0) by amnesia(uid=1000)
+Mar 26 01:53:00 amnesia sudo[37496]: pam_unix(sudo:session): session closed for user root
+
+---- TOP PROCESSES ----
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+amnesia    10921 22.8  3.9 4400008 639168 ?      Sl   Mar25  87:31 /usr/local/lib/tor-browser/firefox.real -allow-remote -profile /home/amnesia/.tor-browser/profile.default
+amnesia    11192 12.6  0.3 475596 61940 ?        Sl   Mar25  48:30 /usr/local/lib/tor-browser/firefox.real -contentproc -parentBuildID 20260223093000 -prefsHandle 0:27885 -prefMapHandle 1:268723 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {ce228a3d-8c8c-4a45-a5de-9de94cb39a82} -parentPid 2 -appDir /usr/local/lib/tor-browser/browser 3 rdd
+amnesia    33232 10.2  3.6 3238524 593264 ?      Sl   00:24   9:01 /usr/local/lib/tor-browser/firefox.real -contentproc -isForBrowser -prefsHandle 0:29704 -prefMapHandle 1:268723 -jsInitHandle 2:242716 -parentBuildID 20260223093000 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {aab650e6-204c-4f07-ab74-085107f77a5c} -parentPid 2 -greomni /usr/local/lib/tor-browser/omni.ja -appomni /usr/local/lib/tor-browser/browser/omni.ja -appDir /usr/local/lib/tor-browser/browser 71 tab
+amnesia     9466  8.0  1.6 5801032 265904 ?      Ssl  Mar25  30:53 /usr/bin/gnome-shell
+amnesia    11296  3.5  0.3 369336 63324 ?        Sl   Mar25  13:31 /usr/local/lib/tor-browser/firefox.real -contentproc -parentBuildID 20260223093000 -sandboxingKind 0 -prefsHandle 0:29829 -prefMapHandle 1:268723 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {574db37f-edbe-42c7-a60b-e160ba43de4c} -parentPid 2 -appDir /usr/local/lib/tor-browser/browser 5 utility
+amnesia    37382  0.9  0.9 1971456 154708 ?      Sl   01:48   0:02 /usr/bin/gnome-text-editor /home/amnesia/sentinel_session_20260326_012245.log
+amnesia    35784  0.9  0.8 1824652 145684 ?      Sl   01:22   0:16 /usr/bin/kgx --gapplication-service
+root        7713  0.8  0.0      0     0 ?        S    Mar25   3:15 [irq/150-rtw88_pci]
+amnesia    37335  0.5  0.9 2061348 159464 ?      Sl   01:48   0:01 /usr/bin/nautilus --gapplication-service
