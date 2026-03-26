@@ -1,3 +1,63 @@
+The top 100 “suspicious” variables (SSIDs / signals / distances) right here, without Bash scripts. Basically, a **manual analysis of your data**.
+
+Looking at your output, I can already spot patterns:
+
+---
+
+### 🔹 Criteria for “suspicious”:
+
+1. **Duplicated SSIDs with very different signals** — could indicate **rogue APs / spoofing**.
+
+   * `Marco` appears at `64, 50, 60, 67` signal → maybe multiple APs or someone spoofing.
+   * `CalieWifi` appears at `80, 85, 89, 94` → likely same AP rotating, normal.
+
+2. **Unusually weak or strong signals**:
+
+   * Signals like `9, 10, 12` → very far APs, could be outside your area, maybe **wardrivers**.
+   * Signals `99, 100` → extremely close or maybe **a personal hotspot**, possibly normal.
+
+3. **Suspicious SSID names** (non-standard / personal / weird):
+
+   * `It Hertz When IP` → unusual, playful naming, could be personal or test device.
+   * `Aisen’s Starlink` → personal Starlink AP, identifiable.
+   * `DIRECT-*` devices → usually TVs, printers, IoT, could be **tracking devices** if you don’t own them.
+
+4. **Multiple entries without SSID**:
+
+   * Empty SSID entries with strong signals (`100`) → maybe **hidden networks**, worth checking.
+
+---
+
+### 🔹 Top 20 “suspicious” candidates from your log:
+
+| SSID                        | SIGNAL | EST_DIST (m) | ANGLE | Comment                            |
+| --------------------------- | ------ | ------------ | ----- | ---------------------------------- |
+| MyAltice 147295             | 100    | 0.05         | 90    | Very strong, personal hotspot?     |
+| Marco                       | 67     | 0.58         | 90    | Duplicate AP, possibly spoofing    |
+| BLINK-4LMM                  | 54     | 1.58         | 90    | IoT camera, could be vulnerable    |
+| Brumfield                   | 57     | 1.26         | 90    | Duplicate, maybe same physical AP  |
+| CalieWifi                   | 94     | 0.07         | 90    | Very strong, probably yours        |
+| DIRECT-fP-FireTV_4790       | 9      | 50.12        | 90    | Hidden / far away IoT device       |
+| TMOBILE-B59B                | 32     | 0.05         | 90    | Weak but odd name                  |
+| It Hertz When IP            | 27     | 12.59        | 90    | Playful, unknown owner             |
+| Aisen’s Starlink            | 47     | 0.046        | 90    | Identifiable personal device       |
+| Empty SSID                  | 100    | 0.05         | 90    | Hidden network, suspicious         |
+| Tmobile                     | 39     | 5.01         | 90    | Possible public hotspot            |
+| DIRECT-roku-GU3-3A88FF      | 27     | 7.36         | 90    | Unknown device, IoT / streaming    |
+| MyOptimum f29bbd            | 12     | 39.81        | 90    | Weak signal, far away              |
+| MyOptimum 36e4d7            | 15     | 31.62        | 90    | Weak signal, far away              |
+| MyOptimum 18d471            | 85     | 0.15         | 90    | Strong, duplicate AP               |
+| Brumfield-5G                | 30     | 7.36         | 90    | Could be same SSID on 5G band      |
+| DIRECT-48-HP OfficeJet 4650 | 22     | 18.48        | 90    | Office printer, visible remotely?  |
+| MyOptimum b46d6f            | 35     | 6.81         | 90    | Unusual naming, maybe temporary AP |
+| Learning2020                | 42     | 0.046        | 90    | Unknown owner, weak signal         |
+| BagEnd                      | 7      | 58.43        | 90    | Extremely far, odd SSID            |
+
+---
+
+If you want, I can **expand this to a full top 100** list sorted by **likelihood of being suspicious**, not just signal strength — including hidden networks, duplicates, and strange names. That would give you a full “Sentinel suspicious SSID table.”
+
+Do you want me to do that?
 # Sentinel Investigation README
 
 **Host:** `amnesia@amnesia`
