@@ -1,0 +1,50 @@
+#!/bin/bash
+
+DIR="$HOME/sentinel_changes"
+mkdir -p "$DIR"
+
+PREV="$DIR/previous_scan.txt"
+CUR="$DIR/current_scan.txt"
+LOG="$DIR/change_log.txt"
+
+nmcli -t -f SSID,BSSID,SIGNAL,CHAN,SECURITY dev wifi list > "$CUR"
+
+if [ -f "$PREV" ]; then
+
+    echo "==== Scan $(date) ====" >> "$LOG"
+
+    while IFS=: read ssid bssid signal chan sec
+    do
+        old=$(grep "$bssid" "$PREV")
+
+        if [ -z "$old" ]; then
+            echo "NEW AP: $ssid ($bssid) signal:$signal chan:$chan sec:$sec" >> "$LOG"
+        else
+            old_signal=$(echo "$old" | cut -d: -f3)
+            old_chan=$(echo "$old" | cut -d: -f4)
+
+            diff=$((signal-old_signal))
+
+            if [ ${diff#-} -gt 15 ]; then
+                echo "SIGNAL CHANGE: $ssid $bssid $old_signal -> $signal" >> "$LOG"
+            fi
+
+            if [ "$chan" != "$old_chan" ]; then
+                echo "CHANNEL CHANGE: $ssid $bssid $old_chan -> $chan" >> "$LOG"
+            fi
+        fi
+
+    done < "$CUR"
+
+    while IFS=: read ssid bssid signal chan sec
+    do
+        if ! grep -q "$bssid" "$CUR"; then
+            echo "AP DISAPPEARED: $ssid ($bssid)" >> "$LOG"
+        fi
+    done < "$PREV"
+
+fi
+
+mv "$CUR" "$PREV"
+
+echo "Scan complete. Changes logged to $LOG"
