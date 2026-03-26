@@ -1,0 +1,53 @@
+===== Sentinel Preflight Check =====
+Run ID: 20260326_104531
+Logs: /home/amnesia/sentinel_preflight/run_20260326_104531
+
+Check 1: system_info
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/1_system_info.log
+
+Check 2: os_release
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/2_os_release.log
+
+Check 3: disk_layout
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/3_disk_layout.log
+
+Check 4: mounted_drives
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/4_mounted_drives.log
+
+Check 5: network_interfaces
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/5_network_interfaces.log
+
+Check 6: wifi_devices
+⚠ Failed but continuing
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/6_wifi_devices.log
+
+Check 7: network_manager
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/7_network_manager.log
+
+Check 8: wifi_scan
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/8_wifi_scan.log
+
+Check 9: bluetooth_status
+⚠ Failed but continuing
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/9_bluetooth_status.log
+
+Check 10: usb_devices
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/10_usb_devices.log
+
+Check 11: pci_devices
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/11_pci_devices.log
+
+Check 12: kernel_messages
+✔ Success
+Log: /home/amnesia/sentinel_preflight/run_20260326_104531/12_kernel_messages.log
+
+===== Preflight Complete =====

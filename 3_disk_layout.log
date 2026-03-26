@@ -1,0 +1,21 @@
+NAME                   MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+loop0                    7:0    0   1.8G  1 loop  /usr/lib/live/mount/rootfs/filesystem.squashfs
+loop1                    7:1    0 335.6M  1 loop  /usr/lib/live/mount/rootfs/7.5.squashfs
+sda                      8:0    1  28.9G  0 disk  
+├─sda1                   8:1    1     8G  0 part  /usr/lib/live/mount/medium
+└─sda2                   8:2    1  20.9G  0 part  
+  └─TailsData_unlocked 254:0    0  20.9G  0 crypt /var/lib/apt/lists
+                                                  /run/nosymfollow/var/lib/apt/lists
+                                                  /var/cache/apt/archives
+                                                  /run/nosymfollow/var/cache/apt/archives
+                                                  /home/amnesia/Persistent
+                                                  /run/nosymfollow/home/amnesia/Persistent
+                                                  /run/nosymfollow/live/persistence/TailsData_unlocked
+                                                  /live/persistence/TailsData_unlocked
+zram0                  253:0    0  15.4G  0 disk  [SWAP]
+nvme0n1                259:0    0 476.9G  0 disk  
+├─nvme0n1p1            259:1    0   100M  0 part  
+├─nvme0n1p2            259:2    0    16M  0 part  
+├─nvme0n1p3            259:3    0  48.2G  0 part  
+├─nvme0n1p4            259:4    0   546M  0 part  
+└─nvme0n1p5            259:5    0 428.1G  0 part  

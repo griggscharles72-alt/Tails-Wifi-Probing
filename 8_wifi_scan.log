@@ -1,0 +1,54 @@
+IN-USE  BSSID              SSID              MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       A4:CF:D2:14:72:99  MyAltice 147295   Infra  149   540 Mbit/s  100     ▂▄▆█  WPA2     
+        A6:CF:D2:14:72:9C  --                Infra  149   540 Mbit/s  100     ▂▄▆█  WPA3     
+        A4:CF:D2:14:72:98  MyAltice 147295   Infra  11    260 Mbit/s  95      ▂▄▆█  WPA2     
+        A0:ED:6D:E4:6F:50  CalieWifi         Infra  11    260 Mbit/s  92      ▂▄▆█  WPA2     
+        A0:ED:6D:E4:6F:51  CalieWifi         Infra  44    540 Mbit/s  87      ▂▄▆█  WPA2     
+        A2:ED:6D:E4:6F:54  --                Infra  44    540 Mbit/s  85      ▂▄▆█  WPA3     
+        94:4E:5B:18:D4:74  MyOptimum 18d471  Infra  1     195 Mbit/s  70      ▂▄▆_  WPA2     
+        A4:CF:D2:C8:2E:2A  Marco             Infra  11    260 Mbit/s  69      ▂▄▆_  WPA2     
+        28:80:88:1F:63:C8  Brumfield         Infra  1     195 Mbit/s  54      ▂▄__  WPA2     
+        A4:CF:D2:C8:2E:2B  Marco             Infra  149   540 Mbit/s  44      ▂▄__  WPA2     
+        5C:53:C3:68:A1:9A  MyOptimum 68a197  Infra  1     260 Mbit/s  35      ▂▄__  WPA2     
+
+IN-USE  BSSID              SSID                          MODE   CHAN  RATE        SIGNAL  BARS  SECURITY  
+        A4:CF:D2:14:72:98  MyAltice 147295               Infra  11    260 Mbit/s  97      ▂▄▆█  WPA2      
+        A6:CF:D2:14:72:9C  --                            Infra  149   540 Mbit/s  95      ▂▄▆█  WPA3      
+        A0:ED:6D:E4:6F:50  CalieWifi                     Infra  11    260 Mbit/s  90      ▂▄▆█  WPA2      
+*       A4:CF:D2:14:72:99  MyAltice 147295               Infra  149   540 Mbit/s  90      ▂▄▆█  WPA2      
+        94:4E:5B:18:D4:74  MyOptimum 18d471              Infra  1     195 Mbit/s  82      ▂▄▆█  WPA2      
+        A0:ED:6D:E4:6F:51  CalieWifi                     Infra  44    540 Mbit/s  82      ▂▄▆█  WPA2      
+        A2:ED:6D:E4:6F:54  --                            Infra  44    540 Mbit/s  82      ▂▄▆█  WPA3      
+        A4:CF:D2:C8:2E:2A  Marco                         Infra  11    260 Mbit/s  62      ▂▄▆_  WPA2      
+        5C:53:C3:68:A1:9A  MyOptimum 68a197              Infra  1     260 Mbit/s  57      ▂▄▆_  WPA2      
+        28:80:88:1F:63:C8  Brumfield                     Infra  1     195 Mbit/s  57      ▂▄▆_  WPA2      
+        94:4E:5B:13:60:B4  MyOptimum 1360b1              Infra  1     195 Mbit/s  52      ▂▄__  WPA2      
+        AA:F9:00:2A:BA:D8  Aisen’s Starlink              Infra  6     260 Mbit/s  50      ▂▄__  WPA2      
+        A4:CF:D2:C8:2E:2B  Marco                         Infra  149   540 Mbit/s  50      ▂▄__  WPA2      
+        A6:CF:D2:C8:2E:36  --                            Infra  149   540 Mbit/s  50      ▂▄__  WPA3      
+        22:3E:A4:98:34:8C  --                            Infra  1     130 Mbit/s  49      ▂▄__  WPA2      
+        74:AB:93:A7:7B:19  BLINK-4LMM                    Infra  6     65 Mbit/s   45      ▂▄__  --        
+        5C:53:C3:C3:23:EC  MyOptimum c323e9              Infra  11    260 Mbit/s  44      ▂▄__  WPA2      
+        AA:F9:00:8A:BA:D8  --                            Infra  6     260 Mbit/s  42      ▂▄__  WPA2      
+        2A:C5:C8:08:BD:A1  DIRECT-A1-HP Smart Tank 7600  Infra  6     65 Mbit/s   39      ▂▄__  WPA2      
+        5C:53:C3:36:E4:DA  MyOptimum 36e4d7              Infra  11    260 Mbit/s  35      ▂▄__  WPA2      
+        94:4E:5B:13:60:B5  MyOptimum 1360b1              Infra  44    540 Mbit/s  35      ▂▄__  WPA2      
+        A4:CF:D2:B4:6D:72  MyOptimum b46d6f              Infra  1     260 Mbit/s  34      ▂▄__  WPA2      
+        94:4E:5B:18:D4:75  MyOptimum 18d471              Infra  149   540 Mbit/s  34      ▂▄__  WPA2      
+        BC:96:E5:D1:9C:0F  Tmobile                       Infra  3     260 Mbit/s  32      ▂▄__  WPA2 WPA3 
+        28:80:88:1F:63:C7  Brumfield-5G                  Infra  153   405 Mbit/s  32      ▂▄__  WPA2      
+        46:50:DD:63:88:68  DIRECT-roku-GU3-3A88FF        Infra  44    130 Mbit/s  29      ▂___  WPA2      
+        D6:E2:2F:E4:E7:07  --                            Infra  153   130 Mbit/s  29      ▂___  WPA2      
+        4A:62:84:22:C5:95  Aisen’s Starlink              Infra  6     130 Mbit/s  27      ▂___  WPA2      
+        34:98:B5:5C:7D:C0  NETGEAR10                     Infra  2     270 Mbit/s  22      ▂___  WPA2      
+        4E:15:24:C3:A2:76  Zuniga12                      Infra  7     260 Mbit/s  22      ▂___  WPA2      
+        5C:53:C3:C3:23:ED  MyOptimum c323e9              Infra  36    540 Mbit/s  22      ▂___  WPA2      
+        5C:53:C3:C1:7D:A6  MyOptimum c17da3              Infra  11    260 Mbit/s  20      ▂___  WPA2      
+        5C:53:C3:68:A1:9B  MyOptimum 68a197              Infra  149   540 Mbit/s  20      ▂___  WPA2      
+        E6:E3:3D:AB:34:2D  --                            Infra  36    130 Mbit/s  10      ▂___  WPA2      
+        AA:F9:00:3A:BA:D8  Aisen’s Starlink              Infra  48    540 Mbit/s  10      ▂___  WPA2      
+        A2:ED:6D:F2:9B:C4  --                            Infra  149   540 Mbit/s  10      ▂___  WPA3      
+        A0:ED:6D:F2:9B:C1  MyOptimum f29bbd              Infra  149   540 Mbit/s  10      ▂___  WPA2      
+        D8:CF:61:BC:4B:B7  --                            Infra  36    540 Mbit/s  9       ▂___  WPA2      
+        A6:CF:D2:41:B2:50  --                            Infra  149   540 Mbit/s  9       ▂___  WPA3      
+        A4:CF:D2:41:B2:4D  MyAltice 41b249               Infra  149   540 Mbit/s  9       ▂___  WPA2      

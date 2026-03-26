@@ -1,0 +1,18 @@
+Filesystem                      Size  Used Avail Use% Mounted on
+udev                            7.7G     0  7.7G   0% /dev
+tmpfs                           1.6G  1.8M  1.6G   1% /run
+/dev/sda1                       8.0G  2.3G  5.8G  28% /usr/lib/live/mount/medium
+/dev/loop0                      1.8G  1.8G     0 100% /usr/lib/live/mount/rootfs/filesystem.squashfs
+/dev/loop1                      336M  336M     0 100% /usr/lib/live/mount/rootfs/7.5.squashfs
+tmpfs                           7.8G  157M  7.6G   2% /usr/lib/live/mount/overlay
+overlay                         7.8G  157M  7.6G   2% /
+tmpfs                           7.8G  3.1M  7.8G   1% /dev/shm
+efivarfs                        192K   70K  118K  37% /sys/firmware/efi/efivars
+tmpfs                           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs                           7.8G  202M  7.6G   3% /run/initramfs
+tmpfs                           7.8G     0  7.8G   0% /var/tmp
+tmpfs                           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs                           7.8G   24K  7.8G   1% /tmp
+overlay                         1.6G  1.8M  1.6G   1% /var/lib/flatpak-tails/runtime/org.boum.tails.Platform/x86_64/stable/df15f6f2b94a4fed615edf0f031d7b480e54138a368e6784424d5a9be85a2865/files
+tmpfs                           1.6G  244K  1.6G   1% /run/user/1000
+/dev/mapper/TailsData_unlocked   21G  2.1M   20G   1% /live/persistence/TailsData_unlocked
