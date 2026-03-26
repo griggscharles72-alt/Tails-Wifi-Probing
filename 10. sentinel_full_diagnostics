@@ -1,0 +1,48 @@
+#!/bin/bash
+
+LOG="$HOME/sentinel_full_diagnostics_$(date +%Y%m%d_%H%M%S).log"
+
+echo "===== SENTINEL WIFI DIAGNOSTIC =====" | tee "$LOG"
+echo "TIME: $(date)" | tee -a "$LOG"
+echo "" | tee -a "$LOG"
+
+run(){
+echo ""
+echo "===== $1 =====" | tee -a "$LOG"
+shift
+"$@" 2>&1 | tee -a "$LOG"
+}
+
+run "WIFI DEVICE LIST" nmcli device
+run "WIFI RADIO STATUS" nmcli radio wifi
+run "WIFI NETWORK SCAN" nmcli -f IN-USE,SSID,SIGNAL,CHAN,SECURITY dev wifi list
+run "WIFI SIGNAL ONLY" nmcli -t -f SSID,SIGNAL dev wifi list
+run "WIFI CHANNEL ANALYSIS" nmcli -f SSID,CHAN,SIGNAL dev wifi list
+run "WIFI SECURITY TYPES" nmcli -f SSID,SECURITY dev wifi list
+run "HIDDEN NETWORK DETECTION" nmcli -f SSID,BSSID dev wifi list
+run "FULL WIFI DETAIL" nmcli -f ALL dev wifi list
+
+run "NETWORK INTERFACES" ip a
+run "ROUTING TABLE" ip route
+run "WIRELESS DRIVER INFO" ethtool -i wlan0
+run "LINK STATUS" iw dev
+run "WIFI PHY INFO" iw phy
+run "WIFI STATION INFO" iw dev wlan0 station dump
+
+run "SCAN CHANNELS" iw dev wlan0 scan | head -n 200
+run "SCAN SIGNALS" iw dev wlan0 scan | grep signal
+run "SCAN SSIDS" iw dev wlan0 scan | grep SSID
+
+run "DHCP STATUS" nmcli device show wlan0
+run "DNS INFO" resolvectl status
+
+run "ARP TABLE" arp -a
+run "LOCAL HOSTS" cat /etc/hosts
+
+run "TOR EXIT IP" curl -s https://check.torproject.org/api/ip
+run "PUBLIC IP" curl -s ifconfig.me
+
+run "CURRENT CONNECTION" nmcli connection show --active
+
+echo ""
+echo "===== COMPLETE =====" | tee -a "$LOG"
