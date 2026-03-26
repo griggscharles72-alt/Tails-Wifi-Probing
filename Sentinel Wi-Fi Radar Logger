@@ -1,0 +1,19 @@
+LOG="$HOME/sentinel_wifi_radar_$(date +%Y%m%d_%H%M%S).log"
+
+echo "===== SENTINEL WIFI RADAR =====" | tee "$LOG"
+echo "START TIME: $(date)" | tee -a "$LOG"
+echo "" | tee -a "$LOG"
+
+while true
+do
+echo "----- SCAN $(date) -----" | tee -a "$LOG"
+
+nmcli -t -f IN-USE,SSID,BSSID,CHAN,SIGNAL,SECURITY dev wifi list | \
+awk -F: '{
+printf "SSID:%s | BSSID:%s | CH:%s | SIGNAL:%s\n",$2,$3,$4,$5
+}' | tee -a "$LOG"
+
+echo "" | tee -a "$LOG"
+
+sleep 30
+done
