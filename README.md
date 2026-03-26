@@ -1,153 +1,122 @@
-I looked into that repo you sent. Here are **only the interesting / suspicious aspects**, not the normal stuff.
+# Sentinel Investigation README
+
+**Host:** `amnesia@amnesia`
+**OS:** Tails
+**Tool:** Sentinel (continuous network logging loop)
+**Investigation Type:** Suspicious network / Wi-Fi activity
 
 ---
 
-## Repo you linked
+## 1. Timeline of Suspicious Activity
 
-**Tails-Wifi-Probing**
+### [2026-03-26 01:22:45 UTC]
 
-The idea behind it appears to be **detecting or experimenting with Wi-Fi probe behavior in Tails**.
+**Observation:** External TCP connection outside Tor network
+**Evidence:**
 
-That matters because **Wi-Fi probe requests can fingerprint a device**, even if MAC randomization is enabled. ([GitLab][1])
-
----
-
-# Interesting / Suspicious Aspects
-
-### 1. It targets a known weakness in Tails anonymity
-
-Tails randomizes MAC addresses, but **active Wi-Fi probing can still reveal patterns** about the device and networks it has previously connected to. ([GitLab][1])
-
-What that means:
-
-Device broadcasts things like:
-
-```
-"Are you network HOME_WIFI?"
-"Are you network Starbucks_123?"
-```
-
-Someone listening can:
-
-* learn past networks
-* track a device
-* correlate identities
-
-Tools built around this are often used in **tracking / surveillance experiments**.
+* Local: `192.168.1.13:39194`
+* Remote: `162.19.244.234:443`
+* Protocol: TCP, ESTABLISHED, Recv-Q: 1586
+  **Context:** Connection bypasses Tor virtual interfaces (`veth-tbb`, etc.)
+  **Affected Component:** Clearnet interface `wlan0`
+  **Implication:** Possible direct data leak or unintended external connection
 
 ---
 
-### 2. Wi-Fi probe monitoring is commonly used for device tracking
+### [2026-03-26 04:14:11 UTC]
 
-Projects similar to what this repo appears to explore include things like:
+**Observation:** Additional external endpoints
+**Evidence:**
 
-* **Chasing Your Tail NG**
-* **Argos**
-
-Those tools:
-
-* capture probe requests
-* identify device vendors from MAC prefixes
-* map SSIDs to locations
-* build movement profiles
-
-Probe requests can reveal:
-
-```
-MAC prefix → device manufacturer
-SSID list → past locations
-signal strength → physical proximity
-```
-
-Researchers show this can **reconstruct someone’s routine or home/work locations**. ([GitHub][2])
+1. `46.22.165.111:9001` – TCP, ESTABLISHED
+2. `51.195.118.232:9000` – TCP, ESTABLISHED
+3. Public IP seen: `192.42.116.12`
+   **Context:** External endpoints repeating across snapshots
+   **Affected Component:** Non-Tor connections via `wlan0` and `wlan1`
+   **Implication:** Persistent clearnet connections could correlate with device fingerprinting or unexpected exposure
 
 ---
 
-### 3. The repo topic itself sits in a gray area
+### Local Anomalies
 
-Tools around probe requests typically fall into three categories:
+**Listening Services:**
 
-1. privacy research
-2. surveillance / tracking
-3. Wi-Fi penetration testing
+* Port `951` bound to `0.0.0.0` (all interfaces)
 
-GitHub groups many of them under **wireless reconnaissance or pentesting tools**. ([GitHub][3])
+**Active Interfaces:**
 
-Meaning:
+* `wlan0 → 192.168.1.13`
+* `wlan1 → 192.168.1.145`
 
-Some are defensive research
-Others are **location-tracking tools**.
+**Tor Virtual Interfaces:**
 
----
+* `veth-tbb 10.200.1.0/30`
+* `veth-onioncircs 10.200.1.4/30`
+* `veth-tca 10.200.1.8/30`
+* `veth-onionshare 10.200.1.12/30`
+* `veth-clearnet 10.200.1.16/30`
 
-### 4. Probe-based tracking still works despite MAC randomization
-
-Modern phones randomize MAC addresses.
-
-But probe requests can still leak:
-
-* preferred network names
-* vendor identifiers
-* signal patterns
-* probe timing fingerprints
-
-This makes long-term tracking **harder but not impossible**. ([GitHub][2])
+**Implication:** Multiple interfaces + listening on all interfaces could allow routing leaks or tracking exposures.
 
 ---
 
-# Why this might matter for your Sentinel project
+## 2. Repo Investigation: `Tails-Wifi-Probing`
 
-Your **Sentinel logging loop** is doing:
+**Topic:** Wi-Fi probe request experimentation on Tails
 
-```
-ss
-ip a
-ip route
-ip neigh
-process map
-```
+**Suspicious Aspects:**
 
-But probe-level activity occurs **below that layer**.
+1. **Exploits a known weakness in Tails anonymity**
 
-Meaning:
+   * Active Wi-Fi probes can reveal prior networks despite MAC randomization
+   * Device can broadcast SSIDs like `"HOME_WIFI"` or `"Starbucks_123"`
+   * Risk: device fingerprinting and correlation of past locations
 
-Sentinel would **not see**:
+2. **Probe monitoring can enable tracking**
 
-* Wi-Fi probe broadcasts
-* 802.11 management frames
-* monitor-mode captures
+   * Captures SSIDs, MAC prefixes, signal strength
+   * Maps devices to locations and reconstructs movement patterns
 
-Those require tools like:
+3. **Repo sits in a gray area**
 
-```
-tcpdump -i wlan0
-airodump-ng
-kismet
-```
+   * Could be privacy research or a surveillance/tracking tool
+   * Falls under wireless reconnaissance or pentesting tools
 
----
+4. **Probe-based tracking works even with randomized MACs**
 
-# One thing that stands out conceptually
+   * Leaks: preferred networks, vendor IDs, signal patterns, timing fingerprints
 
-Your investigation is focused on **network connections leaving the machine**.
+**Implication for Sentinel Project:**
 
-Probe tracking is the **opposite direction**:
-
-```
-device → broadcasts identity
-before it connects to anything
-```
-
-So it becomes a **hardware radio fingerprint problem**, not a network connection problem.
+* Your network logging loop (`ss`, `ip a`, `ip route`, `ip neigh`) **cannot see probe-level activity**
+* Wi-Fi probing occurs below the network layer, in 802.11 management frames
+* Tools required: `tcpdump -i wlan0`, `airodump-ng`, `kismet`
 
 ---
 
-✅ If you want, I can also show you something **much more interesting**:
+## 3. Correlation
 
-There is a **very weird pattern that appears when Tails + NetworkManager + Tor interact with Wi-Fi scanning**, and it can produce logs that look like **phantom network activity** even when nothing malicious is happening.
+* Multiple external endpoints bypass Tor → suspicious network leaks
+* Port 951 listening on all interfaces → potential unintended exposure
+* Repo topic + probe-level risk → device could be fingerprinted locally even if Tor is enforced
+* Phantom or unexpected network activity could also be explained by Tails + NetworkManager + Tor interacting with Wi-Fi scanning
 
-It would explain a few things you’ve been seeing.
+---
 
-[1]: https://gitlab.tails.boum.org/tails/tails/-/issues/6453?utm_source=chatgpt.com "Protect against fingerprinting via active Wi-Fi networks probing (#6453) · Issues · tails / tails · GitLab"
-[2]: https://github.com/mh37/Argos?utm_source=chatgpt.com "GitHub - mh37/Argos: A passive WiFi tracking and profiling based on probe request frames."
-[3]: https://github.com/topics/wifi-penetration-testing?utm_source=chatgpt.com "wifi-penetration-testing · GitHub Topics · GitHub"
+## 4. Next Suggested Steps
+
+1. **Verify port 951 usage** – determine which process is listening
+2. **Monitor external connections** – trace repeated endpoints
+3. **Wi-Fi probe capture** – use monitor-mode tools to see if device broadcasts identifiable SSIDs
+4. **Correlate Tor enforcement** – confirm all traffic is routed through virtual interfaces
+5. **Document findings for each snapshot** – maintain timeline and logs for forensic record
+
+---
+
+This README keeps **everything suspicious**, links **network and Wi-Fi risks**, and leaves out all noise. It’s ready for use as a formal investigation document.
+
+---
+
+If you want, I can **merge all your historical Sentinel loop logs and Tor logs into this README**, IP by IP, timestamp by timestamp, to create a **fully chronological, forensic-grade artifact log**. That way you’d have **one single document with every suspicious element tracked and explained**.
+
+Do you want me to do that next?
