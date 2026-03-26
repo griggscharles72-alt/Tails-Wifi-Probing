@@ -1,0 +1,112 @@
+#!/bin/bash
+
+PRE_DIR="$HOME/sentinel_preflight"
+ENV_DIR="$HOME/sentinel_logs"
+REPORT_DIR="$HOME/sentinel_reports"
+
+mkdir -p "$REPORT_DIR"
+
+REPORT_FILE="$REPORT_DIR/sentinel_summary_$(date +%Y%m%d_%H%M%S).txt"
+
+echo "===== SENTINEL ENVIRONMENT SUMMARY =====" > "$REPORT_FILE"
+echo "Generated: $(date)" >> "$REPORT_FILE"
+echo "" >> "$REPORT_FILE"
+
+############################################
+# Latest preflight run
+############################################
+
+LATEST_PRE=$(ls -td $PRE_DIR/run_* 2>/dev/null | head -n 1)
+
+echo "PRE-FLIGHT SYSTEM CHECK" >> "$REPORT_FILE"
+echo "Source: $LATEST_PRE" >> "$REPORT_FILE"
+echo "" >> "$REPORT_FILE"
+
+if [ -f "$LATEST_PRE/1_system_info.log" ]; then
+    echo "System Kernel:" >> "$REPORT_FILE"
+    cat "$LATEST_PRE/1_system_info.log" >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+fi
+
+if [ -f "$LATEST_PRE/3_disk_layout.log" ]; then
+    echo "Detected Storage Devices:" >> "$REPORT_FILE"
+    cat "$LATEST_PRE/3_disk_layout.log" >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+fi
+
+if [ -f "$LATEST_PRE/5_network_interfaces.log" ]; then
+    echo "Network Interfaces:" >> "$REPORT_FILE"
+    cat "$LATEST_PRE/5_network_interfaces.log" >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+fi
+
+############################################
+# Latest environment scan
+############################################
+
+LATEST_ENV=$(ls -td $ENV_DIR/run_* 2>/dev/null | head -n 1)
+
+echo "WIRELESS ENVIRONMENT SNAPSHOT" >> "$REPORT_FILE"
+echo "Source: $LATEST_ENV" >> "$REPORT_FILE"
+echo "" >> "$REPORT_FILE"
+
+WIFI_LOG="$LATEST_ENV/1_wifi_scan.log"
+
+if [ -f "$WIFI_LOG" ]; then
+
+    echo "Visible Wi-Fi Networks:" >> "$REPORT_FILE"
+    NETWORK_COUNT=$(tail -n +2 "$WIFI_LOG" | wc -l)
+    echo "Total Networks Detected: $NETWORK_COUNT" >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+
+    echo "Strongest Signals:" >> "$REPORT_FILE"
+
+    tail -n +2 "$WIFI_LOG" \
+    | sort -k6 -nr \
+    | head -5 \
+    >> "$REPORT_FILE"
+
+    echo "" >> "$REPORT_FILE"
+
+    echo "Open Networks (No Security):" >> "$REPORT_FILE"
+
+    grep --color=never -i "open" "$WIFI_LOG" >> "$REPORT_FILE" 2>/dev/null
+
+    echo "" >> "$REPORT_FILE"
+
+fi
+
+############################################
+# Neighbor devices
+############################################
+
+NEIGH_LOG="$LATEST_ENV/4_ip_neighbors.log"
+
+if [ -f "$NEIGH_LOG" ]; then
+
+    echo "Local Network Neighbors:" >> "$REPORT_FILE"
+    cat "$NEIGH_LOG" >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+
+fi
+
+############################################
+# Interface traffic
+############################################
+
+STAT_LOG="$LATEST_ENV/6_interface_stats.log"
+
+if [ -f "$STAT_LOG" ]; then
+
+    echo "Interface Traffic Summary:" >> "$REPORT_FILE"
+    head -20 "$STAT_LOG" >> "$REPORT_FILE"
+    echo "" >> "$REPORT_FILE"
+
+fi
+
+############################################
+
+echo "===== END OF REPORT =====" >> "$REPORT_FILE"
+
+echo "Report generated:"
+echo "$REPORT_FILE"
