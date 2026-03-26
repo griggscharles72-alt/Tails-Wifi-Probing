@@ -1,0 +1,567 @@
+amnesia@amnesia:~$ #!/bin/bash
+
+LOG="$HOME/sentinel_full_diagnostics_$(date +%Y%m%d_%H%M%S).log"
+
+echo "===== SENTINEL WIFI DIAGNOSTIC =====" | tee "$LOG"
+echo "TIME: $(date)" | tee -a "$LOG"
+echo "" | tee -a "$LOG"
+
+run(){
+echo ""
+echo "===== $1 =====" | tee -a "$LOG"
+shift
+"$@" 2>&1 | tee -a "$LOG"
+}
+
+run "WIFI DEVICE LIST" nmcli device
+run "WIFI RADIO STATUS" nmcli radio wifi
+run "WIFI NETWORK SCAN" nmcli -f IN-USE,SSID,SIGNAL,CHAN,SECURITY dev wifi list
+run "WIFI SIGNAL ONLY" nmcli -t -f SSID,SIGNAL dev wifi list
+run "WIFI CHANNEL ANALYSIS" nmcli -f SSID,CHAN,SIGNAL dev wifi list
+run "WIFI SECURITY TYPES" nmcli -f SSID,SECURITY dev wifi list
+run "HIDDEN NETWORK DETECTION" nmcli -f SSID,BSSID dev wifi list
+run "FULL WIFI DETAIL" nmcli -f ALL dev wifi list
+
+run "NETWORK INTERFACES" ip a
+run "ROUTING TABLE" ip route
+run "WIRELESS DRIVER INFO" ethtool -i wlan0
+run "LINK STATUS" iw dev
+run "WIFI PHY INFO" iw phy
+run "WIFI STATION INFO" iw dev wlan0 station dump
+
+run "SCAN CHANNELS" iw dev wlan0 scan | head -n 200
+run "SCAN SIGNALS" iw dev wlan0 scan | grep signal
+echo "===== COMPLETE =====" | tee -a "$LOG"how --activeapi/ip
+===== SENTINEL WIFI DIAGNOSTIC =====
+TIME: Thu Mar 26 03:04:48 PM UTC 2026
+
+
+===== WIFI DEVICE LIST =====
+DEVICE           TYPE      STATE                   CONNECTION        
+wlan0            wifi      connected               MyAltice 147295   
+wlan1            wifi      connected               MyAltice 147295 1 
+lo               loopback  connected (externally)  lo                
+p2p-dev-wlan1    wifi-p2p  disconnected            --                
+eth0             ethernet  unavailable             --                
+veth-clearnet    ethernet  unmanaged               --                
+veth-onioncircs  ethernet  unmanaged               --                
+veth-onionshare  ethernet  unmanaged               --                
+veth-tbb         ethernet  unmanaged               --                
+veth-tca         ethernet  unmanaged               --                
+
+===== WIFI RADIO STATUS =====
+enabled
+
+===== WIFI NETWORK SCAN =====
+IN-USE  SSID              SIGNAL  CHAN  SECURITY 
+        --                100     149   WPA3     
+        CalieWifi         89      11    WPA2     
+        MyAltice 147295   89      11    WPA2     
+        CalieWifi         87      44    WPA2     
+        --                84      44    WPA3     
+*       MyAltice 147295   79      149   WPA2     
+        BLINK-4LMM        62      6     --       
+        MyOptimum 18d471  60      1     WPA2     
+        Marco             60      11    WPA2     
+        Brumfield         54      1     WPA2     
+        MyOptimum 68a197  44      1     WPA2     
+        Marco             42      149   WPA2     
+
+IN-USE  SSID                          SIGNAL  CHAN  SECURITY  
+        MyAltice 147295               100     11    WPA2      
+        --                            99      149   WPA3      
+        CalieWifi                     92      11    WPA2      
+*       MyAltice 147295               90      149   WPA2      
+        MyOptimum 18d471              85      1     WPA2      
+        --                            82      44    WPA3      
+        CalieWifi                     80      44    WPA2      
+        Marco                         65      11    WPA2      
+        MyOptimum 68a197              64      1     WPA2      
+        Brumfield                     59      1     WPA2      
+        --                            55      9     WPA2      
+        MyOptimum 1360b1              54      1     WPA2      
+        MyOptimum c323e9              54      11    WPA2      
+        BLINK-4LMM                    52      6     --        
+        --                            49      1     WPA2      
+        --                            49      149   WPA3      
+        Marco                         49      149   WPA2      
+        NETGEAR16                     47      9     WPA2      
+        T-Mobile Hotspot_6457_2.4GHz  45      4     WPA2      
+        --                            45      48    WPA2      
+        --                            44      6     WPA2      
+        Aisen’s Starlink              44      6     WPA2      
+        MyAltice 6d2721               39      6     WPA2      
+        DIRECT-A1-HP Smart Tank 7600  37      6     WPA2      
+        kingsSmokeShop                34      10    WPA2      
+        MyOptimum 18d471              34      149   WPA2      
+        --                            32      149   WPA3      
+        Springer - Music              30      9     WPA2      
+        Brumfield-5G                  30      153   WPA2      
+        --                            29      153   WPA2      
+        DIRECT-roku-GU3-3A88FF        27      44    WPA2      
+        --                            25      36    WPA3      
+        MyOptimum c323e9              24      36    WPA2      
+        Preston                       22      2     WPA2      
+        Cruz                          22      11    WPA2      
+        --                            22      0     WPA3      
+        MyOptimum 18d471              22      0     WPA3      
+        MyOptimum e74c1f              20      11    WPA2      
+        --                            20      44    WPA2      
+        MyOptimum b59a61              20      149   WPA2      
+        --                            20      149   WPA3      
+        DIRECT-48-HP OfficeJet 4650   19      9     WPA2      
+        --                            19      36    WPA2      
+        MyOptimum 36e4d7              12      44    WPA2      
+        --                            10      48    WPA2      
+        Cruz                          10      149   WPA2      
+        Bennyboo3000                  10      161   WPA2 WPA3 
+        --                            9       48    WPA2      
+        --                            9       149   WPA3      
+        DIRECT-fP-FireTV_4790         7       153   WPA2      
+        hugh242467                    7       161   WPA2      
+
+===== WIFI SIGNAL ONLY =====
+:100
+CalieWifi:89
+MyAltice 147295:89
+CalieWifi:87
+:84
+MyAltice 147295:79
+BLINK-4LMM:62
+MyOptimum 18d471:60
+Marco:60
+Brumfield:54
+MyOptimum 68a197:44
+Marco:42
+
+MyAltice 147295:100
+:99
+CalieWifi:92
+MyAltice 147295:90
+MyOptimum 18d471:85
+:82
+CalieWifi:80
+Marco:65
+MyOptimum 68a197:64
+Brumfield:59
+:55
+MyOptimum 1360b1:54
+MyOptimum c323e9:54
+BLINK-4LMM:52
+:49
+:49
+Marco:49
+NETGEAR16:47
+T-Mobile Hotspot_6457_2.4GHz:45
+:45
+:44
+Aisen’s Starlink:44
+MyAltice 6d2721:39
+DIRECT-A1-HP Smart Tank 7600:37
+kingsSmokeShop:34
+MyOptimum 18d471:34
+:32
+Springer - Music:30
+Brumfield-5G:30
+:29
+DIRECT-roku-GU3-3A88FF:27
+:25
+MyOptimum c323e9:24
+Preston:22
+Cruz:22
+:22
+MyOptimum 18d471:22
+MyOptimum e74c1f:20
+:20
+MyOptimum b59a61:20
+:20
+DIRECT-48-HP OfficeJet 4650:19
+:19
+MyOptimum 36e4d7:12
+:10
+Cruz:10
+Bennyboo3000:10
+:9
+:9
+DIRECT-fP-FireTV_4790:7
+hugh242467:7
+
+===== WIFI CHANNEL ANALYSIS =====
+SSID              CHAN  SIGNAL 
+--                149   100    
+CalieWifi         11    89     
+MyAltice 147295   11    89     
+CalieWifi         44    87     
+--                44    84     
+MyAltice 147295   149   79     
+BLINK-4LMM        6     62     
+MyOptimum 18d471  1     60     
+Marco             11    60     
+Brumfield         1     54     
+MyOptimum 68a197  1     44     
+Marco             149   42     
+
+SSID                          CHAN  SIGNAL 
+MyAltice 147295               11    100    
+--                            149   99     
+CalieWifi                     11    92     
+MyAltice 147295               149   90     
+MyOptimum 18d471              1     85     
+--                            44    82     
+CalieWifi                     44    80     
+Marco                         11    65     
+MyOptimum 68a197              1     64     
+Brumfield                     1     59     
+--                            9     55     
+MyOptimum 1360b1              1     54     
+MyOptimum c323e9              11    54     
+BLINK-4LMM                    6     52     
+--                            1     49     
+--                            149   49     
+Marco                         149   49     
+NETGEAR16                     9     47     
+T-Mobile Hotspot_6457_2.4GHz  4     45     
+--                            48    45     
+--                            6     44     
+Aisen’s Starlink              6     44     
+MyAltice 6d2721               6     39     
+DIRECT-A1-HP Smart Tank 7600  6     37     
+kingsSmokeShop                10    34     
+MyOptimum 18d471              149   34     
+--                            149   32     
+Springer - Music              9     30     
+Brumfield-5G                  153   30     
+--                            153   29     
+DIRECT-roku-GU3-3A88FF        44    27     
+--                            36    25     
+MyOptimum c323e9              36    24     
+Preston                       2     22     
+Cruz                          11    22     
+--                            0     22     
+MyOptimum 18d471              0     22     
+MyOptimum e74c1f              11    20     
+--                            44    20     
+MyOptimum b59a61              149   20     
+--                            149   20     
+DIRECT-48-HP OfficeJet 4650   9     19     
+--                            36    19     
+MyOptimum 36e4d7              44    12     
+--                            48    10     
+Cruz                          149   10     
+Bennyboo3000                  161   10     
+--                            48    9      
+--                            149   9      
+DIRECT-fP-FireTV_4790         153   7      
+hugh242467                    161   7      
+
+===== WIFI SECURITY TYPES =====
+SSID              SECURITY 
+--                WPA3     
+CalieWifi         WPA2     
+MyAltice 147295   WPA2     
+CalieWifi         WPA2     
+--                WPA3     
+MyAltice 147295   WPA2     
+BLINK-4LMM        --       
+MyOptimum 18d471  WPA2     
+Marco             WPA2     
+Brumfield         WPA2     
+MyOptimum 68a197  WPA2     
+Marco             WPA2     
+
+SSID                          SECURITY  
+MyAltice 147295               WPA2      
+--                            WPA3      
+CalieWifi                     WPA2      
+MyAltice 147295               WPA2      
+MyOptimum 18d471              WPA2      
+--                            WPA3      
+CalieWifi                     WPA2      
+Marco                         WPA2      
+MyOptimum 68a197              WPA2      
+Brumfield                     WPA2      
+--                            WPA2      
+MyOptimum 1360b1              WPA2      
+MyOptimum c323e9              WPA2      
+BLINK-4LMM                    --        
+--                            WPA2      
+--                            WPA3      
+Marco                         WPA2      
+NETGEAR16                     WPA2      
+T-Mobile Hotspot_6457_2.4GHz  WPA2      
+--                            WPA2      
+--                            WPA2      
+Aisen’s Starlink              WPA2      
+MyAltice 6d2721               WPA2      
+DIRECT-A1-HP Smart Tank 7600  WPA2      
+kingsSmokeShop                WPA2      
+MyOptimum 18d471              WPA2      
+--                            WPA3      
+Springer - Music              WPA2      
+Brumfield-5G                  WPA2      
+--                            WPA2      
+DIRECT-roku-GU3-3A88FF        WPA2      
+--                            WPA3      
+MyOptimum c323e9              WPA2      
+Preston                       WPA2      
+Cruz                          WPA2      
+--                            WPA3      
+MyOptimum 18d471              WPA3      
+MyOptimum e74c1f              WPA2      
+--                            WPA2      
+MyOptimum b59a61              WPA2      
+--                            WPA3      
+DIRECT-48-HP OfficeJet 4650   WPA2      
+--                            WPA2      
+MyOptimum 36e4d7              WPA2      
+--                            WPA2      
+Cruz                          WPA2      
+Bennyboo3000                  WPA2 WPA3 
+--                            WPA2      
+--                            WPA3      
+DIRECT-fP-FireTV_4790         WPA2      
+hugh242467                    WPA2      
+
+===== HIDDEN NETWORK DETECTION =====
+SSID              BSSID             
+--                A6:CF:D2:14:72:9C 
+CalieWifi         A0:ED:6D:E4:6F:50 
+MyAltice 147295   A4:CF:D2:14:72:98 
+CalieWifi         A0:ED:6D:E4:6F:51 
+--                A2:ED:6D:E4:6F:54 
+MyAltice 147295   A4:CF:D2:14:72:99 
+BLINK-4LMM        74:AB:93:A7:7B:19 
+MyOptimum 18d471  94:4E:5B:18:D4:74 
+Marco             A4:CF:D2:C8:2E:2A 
+Brumfield         28:80:88:1F:63:C8 
+MyOptimum 68a197  5C:53:C3:68:A1:9A 
+Marco             A4:CF:D2:C8:2E:2B 
+
+SSID                          BSSID             
+MyAltice 147295               A4:CF:D2:14:72:98 
+--                            A6:CF:D2:14:72:9C 
+CalieWifi                     A0:ED:6D:E4:6F:50 
+MyAltice 147295               A4:CF:D2:14:72:99 
+MyOptimum 18d471              94:4E:5B:18:D4:74 
+--                            A2:ED:6D:E4:6F:54 
+CalieWifi                     A0:ED:6D:E4:6F:51 
+Marco                         A4:CF:D2:C8:2E:2A 
+MyOptimum 68a197              5C:53:C3:68:A1:9A 
+Brumfield                     28:80:88:1F:63:C8 
+--                            AE:63:BE:85:B7:C7 
+MyOptimum 1360b1              94:4E:5B:13:60:B4 
+MyOptimum c323e9              5C:53:C3:C3:23:EC 
+BLINK-4LMM                    74:AB:93:A7:7B:19 
+--                            22:3E:A4:98:34:8C 
+--                            A6:CF:D2:C8:2E:36 
+Marco                         A4:CF:D2:C8:2E:2B 
+NETGEAR16                     78:D2:94:7B:BA:51 
+T-Mobile Hotspot_6457_2.4GHz  A4:D7:95:2C:86:D4 
+--                            12:59:32:DA:51:3C 
+--                            AA:F9:00:BA:BA:D8 
+Aisen’s Starlink              AA:F9:00:2A:BA:D8 
+MyAltice 6d2721               A4:CF:D2:6D:27:24 
+DIRECT-A1-HP Smart Tank 7600  2A:C5:C8:08:BD:A1 
+kingsSmokeShop                10:0C:6B:DB:6F:8F 
+MyOptimum 18d471              94:4E:5B:18:D4:75 
+--                            96:4E:5B:18:D4:7A 
+Springer - Music              2C:56:DC:54:42:A8 
+Brumfield-5G                  28:80:88:1F:63:C7 
+--                            D6:E2:2F:E4:E7:07 
+DIRECT-roku-GU3-3A88FF        46:50:DD:63:88:68 
+--                            5E:53:C3:C3:23:F0 
+MyOptimum c323e9              5C:53:C3:C3:23:ED 
+Preston                       C4:41:1E:29:87:98 
+Cruz                          A0:ED:6D:D8:6A:34 
+--                            94:4E:5B:18:D4:7B 
+MyOptimum 18d471              94:4E:5B:18:D4:78 
+MyOptimum e74c1f              A0:ED:6D:E7:4C:22 
+--                            52:06:F5:03:E8:32 
+MyOptimum b59a61              5C:53:C3:B5:9A:65 
+--                            5E:53:C3:B5:9A:68 
+DIRECT-48-HP OfficeJet 4650   AC:E2:D3:F5:0B:49 
+--                            E6:E3:3D:AB:34:2D 
+MyOptimum 36e4d7              5C:53:C3:36:E4:DB 
+--                            AA:F9:00:9A:BA:D8 
+Cruz                          A0:ED:6D:D8:6A:35 
+Bennyboo3000                  18:60:41:44:74:50 
+--                            AA:F9:00:6A:BA:D8 
+--                            5E:53:C3:8C:C2:1A 
+DIRECT-fP-FireTV_4790         FA:54:B8:57:58:2A 
+hugh242467                    00:80:AE:44:B7:1A 
+
+===== FULL WIFI DETAIL =====
+NAME    SSID              SSID-HEX                          BSSID              MODE   CHAN  FREQ      RATE        BANDWIDTH  SIGNAL  BARS  SECURITY  WPA-FLAGS  RSN-FLAGS                 DEVICE  ACTIVE  IN-USE  DBUS-PATH                                        
+AP[1]   --                --                                A6:CF:D2:14:72:9C  Infra  149   5745 MHz  540 Mbit/s  80 MHz     100     ▂▄▆█  WPA3      (none)     pair_ccmp group_ccmp sae  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/2776 
+AP[2]   CalieWifi         43616C696557696669                A0:ED:6D:E4:6F:50  Infra  11    2462 MHz  260 Mbit/s  20 MHz     89      ▂▄▆█  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/661  
+AP[3]   MyAltice 147295   4D79416C7469636520313437323935    A4:CF:D2:14:72:98  Infra  11    2462 MHz  260 Mbit/s  20 MHz     89      ▂▄▆█  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/662  
+AP[4]   CalieWifi         43616C696557696669                A0:ED:6D:E4:6F:51  Infra  44    5220 MHz  540 Mbit/s  80 MHz     87      ▂▄▆█  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/659  
+AP[5]   --                --                                A2:ED:6D:E4:6F:54  Infra  44    5220 MHz  540 Mbit/s  80 MHz     84      ▂▄▆█  WPA3      (none)     pair_ccmp group_ccmp sae  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/2739 
+AP[6]   MyAltice 147295   4D79416C7469636520313437323935    A4:CF:D2:14:72:99  Infra  149   5745 MHz  540 Mbit/s  80 MHz     79      ▂▄▆_  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   yes     *       /org/freedesktop/NetworkManager/AccessPoint/125  
+AP[7]   BLINK-4LMM        424C494E4B2D344C4D4D              74:AB:93:A7:7B:19  Infra  6     2437 MHz  65 Mbit/s   20 MHz     62      ▂▄▆_  --        (none)     (none)                    wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/2742 
+AP[8]   MyOptimum 18d471  4D794F7074696D756D20313864343731  94:4E:5B:18:D4:74  Infra  1     2412 MHz  195 Mbit/s  20 MHz     60      ▂▄▆_  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/783  
+AP[9]   Marco             4D6172636F                        A4:CF:D2:C8:2E:2A  Infra  11    2462 MHz  260 Mbit/s  20 MHz     60      ▂▄▆_  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/663  
+AP[10]  Brumfield         4272756D6669656C64                28:80:88:1F:63:C8  Infra  1     2412 MHz  195 Mbit/s  20 MHz     54      ▂▄__  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/2777 
+AP[11]  MyOptimum 68a197  4D794F7074696D756D20363861313937  5C:53:C3:68:A1:9A  Infra  1     2412 MHz  260 Mbit/s  20 MHz     44      ▂▄__  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/2741 
+AP[12]  Marco             4D6172636F                        A4:CF:D2:C8:2E:2B  Infra  149   5745 MHz  540 Mbit/s  80 MHz     42      ▂▄__  WPA2      (none)     pair_ccmp group_ccmp psk  wlan0   no              /org/freedesktop/NetworkManager/AccessPoint/2740 
+
+NAME    SSID                          SSID-HEX                                                  BSSID              MODE   CHAN  FREQ      RATE        BANDWIDTH  SIGNAL  BARS  SECURITY   WPA-FLAGS  RSN-FLAGS                     DEVICE  ACTIVE  IN-USE  DBUS-PATH                                        
+AP[1]   MyAltice 147295               4D79416C7469636520313437323935                            A4:CF:D2:14:72:98  Infra  11    2462 MHz  260 Mbit/s  20 MHz     100     ▂▄▆█  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/671  
+AP[2]   --                            --                                                        A6:CF:D2:14:72:9C  Infra  149   5745 MHz  540 Mbit/s  80 MHz     99      ▂▄▆█  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2695 
+AP[3]   CalieWifi                     43616C696557696669                                        A0:ED:6D:E4:6F:50  Infra  11    2462 MHz  260 Mbit/s  20 MHz     92      ▂▄▆█  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/672  
+AP[4]   MyAltice 147295               4D79416C7469636520313437323935                            A4:CF:D2:14:72:99  Infra  149   5745 MHz  540 Mbit/s  80 MHz     90      ▂▄▆█  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   yes     *       /org/freedesktop/NetworkManager/AccessPoint/108  
+AP[5]   MyOptimum 18d471              4D794F7074696D756D20313864343731                          94:4E:5B:18:D4:74  Infra  1     2412 MHz  195 Mbit/s  20 MHz     85      ▂▄▆█  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/673  
+AP[6]   --                            --                                                        A2:ED:6D:E4:6F:54  Infra  44    5220 MHz  540 Mbit/s  80 MHz     82      ▂▄▆█  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2696 
+AP[7]   CalieWifi                     43616C696557696669                                        A0:ED:6D:E4:6F:51  Infra  44    5220 MHz  540 Mbit/s  80 MHz     80      ▂▄▆_  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/669  
+AP[8]   Marco                         4D6172636F                                                A4:CF:D2:C8:2E:2A  Infra  11    2462 MHz  260 Mbit/s  20 MHz     65      ▂▄▆_  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/674  
+AP[9]   MyOptimum 68a197              4D794F7074696D756D20363861313937                          5C:53:C3:68:A1:9A  Infra  1     2412 MHz  260 Mbit/s  20 MHz     64      ▂▄▆_  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/1010 
+AP[10]  Brumfield                     4272756D6669656C64                                        28:80:88:1F:63:C8  Infra  1     2412 MHz  195 Mbit/s  20 MHz     59      ▂▄▆_  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2005 
+AP[11]  --                            --                                                        AE:63:BE:85:B7:C7  Infra  9     2452 MHz  130 Mbit/s  20 MHz     55      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2744 
+AP[12]  MyOptimum 1360b1              4D794F7074696D756D20313336306231                          94:4E:5B:13:60:B4  Infra  1     2412 MHz  195 Mbit/s  20 MHz     54      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/1436 
+AP[13]  MyOptimum c323e9              4D794F7074696D756D20633332336539                          5C:53:C3:C3:23:EC  Infra  11    2462 MHz  260 Mbit/s  20 MHz     54      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2677 
+AP[14]  BLINK-4LMM                    424C494E4B2D344C4D4D                                      74:AB:93:A7:7B:19  Infra  6     2437 MHz  65 Mbit/s   20 MHz     52      ▂▄__  --         (none)     (none)                        wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2775 
+AP[15]  --                            --                                                        22:3E:A4:98:34:8C  Infra  1     2412 MHz  130 Mbit/s  20 MHz     49      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2766 
+AP[16]  --                            --                                                        A6:CF:D2:C8:2E:36  Infra  149   5745 MHz  540 Mbit/s  80 MHz     49      ▂▄__  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2743 
+AP[17]  Marco                         4D6172636F                                                A4:CF:D2:C8:2E:2B  Infra  149   5745 MHz  540 Mbit/s  80 MHz     49      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/670  
+AP[18]  NETGEAR16                     4E4554474541523136                                        78:D2:94:7B:BA:51  Infra  9     2452 MHz  540 Mbit/s  20 MHz     47      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2780 
+AP[19]  T-Mobile Hotspot_6457_2.4GHz  542D4D6F62696C6520486F7473706F745F363435375F322E3447487A  A4:D7:95:2C:86:D4  Infra  4     2427 MHz  135 Mbit/s  20 MHz     45      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2781 
+AP[20]  --                            --                                                        12:59:32:DA:51:3C  Infra  48    5240 MHz  65 Mbit/s   20 MHz     45      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2697 
+AP[21]  --                            --                                                        AA:F9:00:BA:BA:D8  Infra  6     2437 MHz  260 Mbit/s  20 MHz     44      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2602 
+AP[22]  Aisen’s Starlink              416973656EE280997320537461726C696E6B                      AA:F9:00:2A:BA:D8  Infra  6     2437 MHz  260 Mbit/s  20 MHz     44      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2779 
+AP[23]  MyAltice 6d2721               4D79416C7469636520366432373231                            A4:CF:D2:6D:27:24  Infra  6     2437 MHz  260 Mbit/s  20 MHz     39      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2768 
+AP[24]  DIRECT-A1-HP Smart Tank 7600  4449524543542D41312D485020536D6172742054616E6B2037363030  2A:C5:C8:08:BD:A1  Infra  6     2437 MHz  65 Mbit/s   20 MHz     37      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2674 
+AP[25]  kingsSmokeShop                6B696E6773536D6F6B6553686F70                              10:0C:6B:DB:6F:8F  Infra  10    2457 MHz  270 Mbit/s  20 MHz     34      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2630 
+AP[26]  MyOptimum 18d471              4D794F7074696D756D20313864343731                          94:4E:5B:18:D4:75  Infra  149   5745 MHz  540 Mbit/s  80 MHz     34      ▂▄__  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2778 
+AP[27]  --                            --                                                        96:4E:5B:18:D4:7A  Infra  149   5745 MHz  540 Mbit/s  80 MHz     32      ▂▄__  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2745 
+AP[28]  Springer - Music              537072696E676572202D204D75736963                          2C:56:DC:54:42:A8  Infra  9     2452 MHz  130 Mbit/s  20 MHz     30      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2727 
+AP[29]  Brumfield-5G                  4272756D6669656C642D3547                                  28:80:88:1F:63:C7  Infra  153   5765 MHz  405 Mbit/s  80 MHz     30      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/833  
+AP[30]  --                            --                                                        D6:E2:2F:E4:E7:07  Infra  153   5765 MHz  130 Mbit/s  20 MHz     29      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2753 
+AP[31]  DIRECT-roku-GU3-3A88FF        4449524543542D726F6B752D4755332D334138384646              46:50:DD:63:88:68  Infra  44    5220 MHz  130 Mbit/s  20 MHz     27      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/697  
+AP[32]  --                            --                                                        5E:53:C3:C3:23:F0  Infra  36    5180 MHz  540 Mbit/s  80 MHz     25      ▂___  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2767 
+AP[33]  MyOptimum c323e9              4D794F7074696D756D20633332336539                          5C:53:C3:C3:23:ED  Infra  36    5180 MHz  540 Mbit/s  80 MHz     24      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2290 
+AP[34]  Preston                       50726573746F6E                                            C4:41:1E:29:87:98  Infra  2     2417 MHz  130 Mbit/s  20 MHz     22      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2771 
+AP[35]  Cruz                          4372757A                                                  A0:ED:6D:D8:6A:34  Infra  11    2462 MHz  260 Mbit/s  20 MHz     22      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2770 
+AP[36]  --                            --                                                        94:4E:5B:18:D4:7B  Infra  0     6935 MHz  0 Mbit/s    0 MHz      22      ▂___  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2749 
+AP[37]  MyOptimum 18d471              4D794F7074696D756D20313864343731                          94:4E:5B:18:D4:78  Infra  0     6935 MHz  0 Mbit/s    0 MHz      22      ▂___  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2750 
+AP[38]  MyOptimum e74c1f              4D794F7074696D756D20653734633166                          A0:ED:6D:E7:4C:22  Infra  11    2462 MHz  260 Mbit/s  20 MHz     20      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2782 
+AP[39]  --                            --                                                        52:06:F5:03:E8:32  Infra  44    5220 MHz  65 Mbit/s   20 MHz     20      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2757 
+AP[40]  MyOptimum b59a61              4D794F7074696D756D20623539613631                          5C:53:C3:B5:9A:65  Infra  149   5745 MHz  540 Mbit/s  80 MHz     20      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2410 
+AP[41]  --                            --                                                        5E:53:C3:B5:9A:68  Infra  149   5745 MHz  540 Mbit/s  80 MHz     20      ▂___  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2769 
+AP[42]  DIRECT-48-HP OfficeJet 4650   4449524543542D34382D4850204F66666963654A65742034363530    AC:E2:D3:F5:0B:49  Infra  9     2452 MHz  65 Mbit/s   20 MHz     19      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2783 
+AP[43]  --                            --                                                        E6:E3:3D:AB:34:2D  Infra  36    5180 MHz  130 Mbit/s  20 MHz     19      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2647 
+AP[44]  MyOptimum 36e4d7              4D794F7074696D756D20333665346437                          5C:53:C3:36:E4:DB  Infra  44    5220 MHz  540 Mbit/s  80 MHz     12      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2761 
+AP[45]  --                            --                                                        AA:F9:00:9A:BA:D8  Infra  48    5240 MHz  540 Mbit/s  80 MHz     10      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2784 
+AP[46]  Cruz                          4372757A                                                  A0:ED:6D:D8:6A:35  Infra  149   5745 MHz  540 Mbit/s  80 MHz     10      ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2772 
+AP[47]  Bennyboo3000                  42656E6E79626F6F33303030                                  18:60:41:44:74:50  Infra  161   5805 MHz  540 Mbit/s  80 MHz     10      ▂___  WPA2 WPA3  (none)     pair_ccmp group_ccmp psk sae  wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2773 
+AP[48]  --                            --                                                        AA:F9:00:6A:BA:D8  Infra  48    5240 MHz  540 Mbit/s  80 MHz     9       ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2763 
+AP[49]  --                            --                                                        5E:53:C3:8C:C2:1A  Infra  149   5745 MHz  540 Mbit/s  80 MHz     9       ▂___  WPA3       (none)     pair_ccmp group_ccmp sae      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2774 
+AP[50]  DIRECT-fP-FireTV_4790         4449524543542D66502D4669726554565F34373930                FA:54:B8:57:58:2A  Infra  153   5765 MHz  130 Mbit/s  20 MHz     7       ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2654 
+AP[51]  hugh242467                    68756768323432343637                                      00:80:AE:44:B7:1A  Infra  161   5805 MHz  270 Mbit/s  80 MHz     7       ▂___  WPA2       (none)     pair_ccmp group_ccmp psk      wlan1   no              /org/freedesktop/NetworkManager/AccessPoint/2765 
+
+===== NETWORK INTERFACES =====
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host proto kernel_lo 
+       valid_lft forever preferred_lft forever
+3: veth-tbb@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 7a:4b:32:cd:f5:34 brd ff:ff:ff:ff:ff:ff link-netns tbb
+    inet 10.200.1.1/30 scope global veth-tbb
+       valid_lft forever preferred_lft forever
+5: veth-onioncircs@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 8a:cc:c4:1e:81:ae brd ff:ff:ff:ff:ff:ff link-netns onioncircs
+    inet 10.200.1.5/30 scope global veth-onioncircs
+       valid_lft forever preferred_lft forever
+7: veth-tca@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether de:50:cf:d5:14:d0 brd ff:ff:ff:ff:ff:ff link-netns tca
+    inet 10.200.1.9/30 scope global veth-tca
+       valid_lft forever preferred_lft forever
+9: veth-onionshare@if8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether ba:33:72:d0:fe:d7 brd ff:ff:ff:ff:ff:ff link-netns onionshare
+    inet 10.200.1.13/30 scope global veth-onionshare
+       valid_lft forever preferred_lft forever
+11: veth-clearnet@if10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 5e:99:9b:77:d9:b8 brd ff:ff:ff:ff:ff:ff link-netns clearnet
+    inet 10.200.1.17/30 scope global veth-clearnet
+       valid_lft forever preferred_lft forever
+12: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 84:a9:3e:fc:58:32 brd ff:ff:ff:ff:ff:ff permaddr 84:a9:3e:7a:a8:14
+13: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether ac:d5:64:0a:a0:86 brd ff:ff:ff:ff:ff:ff permaddr ac:d5:64:0d:be:73
+    inet 192.168.1.36/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 3510sec preferred_lft 3510sec
+    inet6 fe80::8430:b9b6:5058:e371/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+14: wlan1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 54:07:7d:d5:95:dd brd ff:ff:ff:ff:ff:ff permaddr 54:07:7d:9b:b6:2b
+    inet 192.168.1.194/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan1
+       valid_lft 3400sec preferred_lft 3400sec
+    inet6 fe80::ba0d:4c0e:f327:e837/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+===== ROUTING TABLE =====
+default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.36 metric 600 
+default via 192.168.1.1 dev wlan1 proto dhcp src 192.168.1.194 metric 601 
+10.200.1.0/30 dev veth-tbb proto kernel scope link src 10.200.1.1 
+10.200.1.4/30 dev veth-onioncircs proto kernel scope link src 10.200.1.5 
+10.200.1.8/30 dev veth-tca proto kernel scope link src 10.200.1.9 
+10.200.1.12/30 dev veth-onionshare proto kernel scope link src 10.200.1.13 
+10.200.1.16/30 dev veth-clearnet proto kernel scope link src 10.200.1.17 
+192.168.1.0/24 dev wlan0 proto kernel scope link src 192.168.1.36 metric 600 
+192.168.1.0/24 dev wlan1 proto kernel scope link src 192.168.1.194 metric 601 
+
+===== WIRELESS DRIVER INFO =====
+bash: ethtool: command not found
+
+===== LINK STATUS =====
+bash: iw: command not found
+
+===== WIFI PHY INFO =====
+bash: iw: command not found
+
+===== WIFI STATION INFO =====
+bash: iw: command not found
+
+===== SCAN CHANNELS =====
+bash: iw: command not found
+===== SCAN SSIDS =====
+
+===== DHCP STATUS =====
+GENERAL.DEVICE:                         wlan0
+GENERAL.TYPE:                           wifi
+GENERAL.HWADDR:                         AC:D5:64:0A:A0:86
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected)
+GENERAL.CONNECTION:                     MyAltice 147295
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/2
+IP4.ADDRESS[1]:                         192.168.1.36/24
+IP4.GATEWAY:                            192.168.1.1
+IP4.ROUTE[1]:                           dst = 192.168.1.0/24, nh = 0.0.0.0, mt = 600
+IP4.ROUTE[2]:                           dst = 0.0.0.0/0, nh = 192.168.1.1, mt = 600
+IP4.DNS[1]:                             192.168.1.1
+IP6.ADDRESS[1]:                         fe80::8430:b9b6:5058:e371/64
+IP6.GATEWAY:                            --
+IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024
+
+===== DNS INFO =====
+bash: resolvectl: command not found
+
+===== ARP TABLE =====
+bash: arp: command not found
+
+===== LOCAL HOSTS =====
+127.0.0.1       localhost localhost.localdomain amnesia
+
+===== TOR EXIT IP =====
+{"IsTor":true,"IP":"185.220.101.15"}
+===== PUBLIC IP =====
+185.220.101.23
+===== CURRENT CONNECTION =====
+NAME               UUID                                  TYPE      DEVICE 
+MyAltice 147295    77fc94a3-c4a0-44e7-97f3-617a18ca32d5  wifi      wlan0  
+MyAltice 147295 1  08d39088-231d-434d-b353-b1e1be75c3bc  wifi      wlan1  
+lo                 facfaa6d-ef2d-4f26-baa0-d880caa22b0d  loopback  lo     
+
+===== COMPLETE =====
+amnesia@amnesia:~$ 
