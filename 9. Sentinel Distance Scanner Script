@@ -1,0 +1,23 @@
+LOG="$HOME/sentinel_distance_scan_$(date +%Y%m%d_%H%M%S).log"
+
+echo "===== SENTINEL PROXIMITY SCAN =====" | tee "$LOG"
+echo "START: $(date)" | tee -a "$LOG"
+echo "" | tee -a "$LOG"
+
+while true
+do
+echo "---- SCAN $(date) ----" | tee -a "$LOG"
+
+nmcli -t -f SSID,SIGNAL dev wifi list | \
+awk -F: '
+{
+signal=$2
+dbm = -100 + signal
+distance = 10 ^ ((-40 - dbm)/(30))
+printf "%-25s SIGNAL:%3s  EST_DIST: %.2f meters\n",$1,signal,distance
+}' | sort -k4 -n | tee -a "$LOG"
+
+echo "" | tee -a "$LOG"
+
+sleep 30
+done
