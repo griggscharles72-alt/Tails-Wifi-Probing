@@ -1,0 +1,39 @@
+#!/bin/bash
+# Sentinel Follow-up Scan: Leak & Suspicious Service Check
+
+LOG="$HOME/sentinel_followup_$(date +%Y%m%d_%H%M%S).log"
+echo "===== SENTINEL FOLLOW-UP SCAN =====" > "$LOG"
+echo "TIME: $(date)" >> "$LOG"
+echo "" >> "$LOG"
+
+# 1. Check public IP (detect if bypassing Tor)
+echo "---- PUBLIC IP CHECK ----" >> "$LOG"
+curl -s https://ifconfig.me >> "$LOG"
+echo "" >> "$LOG"
+
+# 2. Detect direct clearnet connections (not through Tor)
+echo "---- NON-TOR ESTABLISHED CONNECTIONS ----" >> "$LOG"
+ss -tupn | grep -v "10.200.1" >> "$LOG"
+echo "" >> "$LOG"
+
+# 3. Check suspicious local port (Port 951)
+echo "---- PORT 951 LISTENING ----" >> "$LOG"
+ss -tulpn | grep ":951" >> "$LOG"
+echo "" >> "$LOG"
+
+# 4. List active Wi-Fi interfaces
+echo "---- ACTIVE NETWORK INTERFACES ----" >> "$LOG"
+ip a | grep wlan >> "$LOG"
+echo "" >> "$LOG"
+
+# 5. Check Tor routing via veth interfaces
+echo "---- TOR VETH INTERFACES ----" >> "$LOG"
+ip route | grep 10.200 >> "$LOG"
+echo "" >> "$LOG"
+
+# 6. Top processes by network usage
+echo "---- TOP NETWORK PROCESSES ----" >> "$LOG"
+netstat -tupn | awk '{print $7}' | sort | uniq -c | sort -nr | head >> "$LOG"
+echo "" >> "$LOG"
+
+echo "Saved follow-up snapshot: $LOG"
