@@ -1,0 +1,37 @@
+LOG="$HOME/sentinel_deep_$(date +%Y%m%d_%H%M%S).log"; \
+echo "===== SENTINEL DEEP LOG =====" > "$LOG"; \
+echo "TIME: $(date)" >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOR EXIT IP ----" >> "$LOG"; \
+torsocks curl -s https://check.torproject.org | grep -i "IP address" >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- NETWORK INTERFACES ----" >> "$LOG"; \
+ip a >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ROUTING TABLE ----" >> "$LOG"; \
+ip route >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ACTIVE CONNECTIONS ----" >> "$LOG"; \
+ss -tupn >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- LISTENING PORTS ----" >> "$LOG"; \
+ss -lntup >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ARP TABLE ----" >> "$LOG"; \
+ip neigh >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- DNS CONFIG ----" >> "$LOG"; \
+cat /etc/resolv.conf >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOR PROCESS ----" >> "$LOG"; \
+ps aux | grep tor >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- NETWORK PROCESSES ----" >> "$LOG"; \
+lsof -i >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- RECENT SYSTEM LOGS ----" >> "$LOG"; \
+journalctl -n 50 >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOP PROCESSES ----" >> "$LOG"; \
+ps aux --sort=-%cpu | head >> "$LOG"; \
+echo "Log saved to: $LOG"
