@@ -1,0 +1,31 @@
+while true; do \
+LOG="$HOME/sentinel_loop_$(date +%Y%m%d_%H%M%S).log"; \
+echo "===== SENTINEL LOOP SNAPSHOT =====" > "$LOG"; \
+echo "TIME: $(date)" >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOR EXIT IP ----" >> "$LOG"; \
+torsocks curl -s https://check.torproject.org | grep -i "IP address" >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ACTIVE CONNECTIONS ----" >> "$LOG"; \
+ss -tupn >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- LISTENING PORTS ----" >> "$LOG"; \
+ss -tulpn >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- PORT 951 CHECK ----" >> "$LOG"; \
+ss -plant | grep 951 >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- NETWORK INTERFACES ----" >> "$LOG"; \
+ip a >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ROUTING ----" >> "$LOG"; \
+ip route >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- ARP NEIGHBORS ----" >> "$LOG"; \
+ip neigh >> "$LOG"; \
+echo "" >> "$LOG"; \
+echo "---- TOP PROCESSES ----" >> "$LOG"; \
+ps aux --sort=-%cpu | head >> "$LOG"; \
+echo "Saved snapshot: $LOG"; \
+sleep 30; \
+done
