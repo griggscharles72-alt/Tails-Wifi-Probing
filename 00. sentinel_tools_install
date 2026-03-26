@@ -1,0 +1,57 @@
+#!/bin/bash
+
+DIR="$HOME/sentinel_tools_install"
+mkdir -p "$DIR"
+
+LOG="$DIR/install_log.txt"
+SUCCESS="$DIR/installed.txt"
+FAILED="$DIR/failed.txt"
+
+echo "==== Sentinel Tool Install Started $(date) ====" | tee -a "$LOG"
+
+packages=(
+iw
+tcpdump
+arp-scan
+nmap
+tshark
+aircrack-ng
+macchanger
+net-tools
+wireless-tools
+dnsutils
+whois
+ethtool
+)
+
+for pkg in "${packages[@]}"
+do
+    echo "Installing $pkg..." | tee -a "$LOG"
+
+    sudo apt-get -y install "$pkg" >> "$LOG" 2>&1
+
+    if [ $? -eq 0 ]; then
+        echo "SUCCESS: $pkg" | tee -a "$LOG"
+        echo "$pkg" >> "$SUCCESS"
+    else
+        echo "FAILED: $pkg" | tee -a "$LOG"
+        echo "$pkg" >> "$FAILED"
+    fi
+
+    echo "---------------------------------" >> "$LOG"
+done
+
+echo ""
+echo "Install attempt finished."
+echo ""
+
+echo "Working tools:"
+cat "$SUCCESS" 2>/dev/null
+
+echo ""
+echo "Failed installs:"
+cat "$FAILED" 2>/dev/null
+
+echo ""
+echo "Full log saved to:"
+echo "$LOG"
