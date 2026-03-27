@@ -239,6 +239,8 @@ MyAltice 147295           SIGNAL: 90  EST_DIST: 0.10 meters
 DIRECT-A1-HP Smart Tank 7600 SIGNAL: 35  EST_DIST: 6.81 meters
 
 
+A
+dditional Details From Attacker:
 
 
 SSID:MyOptimum 1360b1 | BSSID:94\ | CH:4E\ | SIGNAL:5B\
