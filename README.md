@@ -478,9 +478,7 @@ Do you want me to do that?
 * Port 951 listening on all interfaces → potential unintended exposure
 * Repo topic + probe-level risk → device could be fingerprinted locally even if Tor is enforced
 * Phantom or unexpected network activity could also be explained by Tails + NetworkManager + Tor interacting with Wi-Fi scanning
-
 ---
-
 ## 4. Next Suggested Steps
 
 1. **Verify port 951 usage** – determine which process is listening
@@ -488,13 +486,9 @@ Do you want me to do that?
 3. **Wi-Fi probe capture** – use monitor-mode tools to see if device broadcasts identifiable SSIDs
 4. **Correlate Tor enforcement** – confirm all traffic is routed through virtual interfaces
 5. **Document findings for each snapshot** – maintain timeline and logs for forensic record
-
 ---
+This README keeps **everything suspicious**, links **network and Wi-Fi risks**, and leaves out all noise. 
+It’s ready for use as a formal investigation document.
 
-This README keeps **everything suspicious**, links **network and Wi-Fi risks**, and leaves out all noise. It’s ready for use as a formal investigation document.
 
----
 
-If you want, I can **merge all your historical Sentinel loop logs and Tor logs into this README**, IP by IP, timestamp by timestamp, to create a **fully chronological, forensic-grade artifact log**. That way you’d have **one single document with every suspicious element tracked and explained**.
-
-Do you want me to do that next?
