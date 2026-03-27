@@ -2,7 +2,7 @@ TOP ATTACKERS
 
 
 
-Where they live: (SEE YOU SOON)
+1.Location. How often they move.Times and dates: (SEE YOU SOON)
 
 Aisen’s Starlink        SIGNAL: 30  EST_DIST: 10.00 meters
 MyOptimum 18d471          SIGNAL: 30  EST_DIST: 10.00 meters
