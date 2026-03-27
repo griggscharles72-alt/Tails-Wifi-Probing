@@ -1,6 +1,9 @@
 TOP ATTACKERS
 
 
+
+Where they live: (SEE YOU SOON)
+
 Aisen’s Starlink        SIGNAL: 30  EST_DIST: 10.00 meters
 MyOptimum 18d471          SIGNAL: 30  EST_DIST: 10.00 meters
 MyOptimum 1360b1          SIGNAL: 32  EST_DIST: 8.58 meters
