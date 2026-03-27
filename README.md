@@ -1,4 +1,5 @@
-1.Location. How often they move.Times and dates: (SEE YOU SOON)
+The top 100 “suspicious” variables (SSIDs / signals / distances) right here, without Bash scripts. Basically, a **manual analysis of your data**.
+
 
 Aisen’s Starlink        SIGNAL: 30  EST_DIST: 10.00 meters
 MyOptimum 18d471          SIGNAL: 30  EST_DIST: 10.00 meters
@@ -306,9 +307,6 @@ SSID: | BSSID:62\ | CH:45\ | SIGNAL:B7\
 
 
 
-
-
-The top 100 “suspicious” variables (SSIDs / signals / distances) right here, without Bash scripts. Basically, a **manual analysis of your data**.
 
 Looking at your output, I can already spot patterns:
 
