@@ -1,4 +1,244 @@
 TOP ATTACKERS
+Aisen’s Starlink        SIGNAL: 30  EST_DIST: 10.00 meters
+MyOptimum 18d471          SIGNAL: 30  EST_DIST: 10.00 meters
+MyOptimum 1360b1          SIGNAL: 32  EST_DIST: 8.58 meters
+MyOptimum b46d6f          SIGNAL: 34  EST_DIST: 7.36 meters
+MyOptimum f29bbd          SIGNAL: 34  EST_DIST: 7.36 meters
+MyOptimum 40e181          SIGNAL: 39  EST_DIST: 5.01 meters
+Aisen’s Starlink        SIGNAL: 42  EST_DIST: 3.98 meters
+MyOptimum b59a61          SIGNAL: 44  EST_DIST: 3.41 meters
+MyOptimum b59a61          SIGNAL: 44  EST_DIST: 3.41 meters
+MyOptimum 1360b1          SIGNAL: 49  EST_DIST: 2.33 meters
+MyOptimum c323e9          SIGNAL: 50  EST_DIST: 2.15 meters
+                          SIGNAL:  9  EST_DIST: 50.12 meters
+                          SIGNAL:  9  EST_DIST: 50.12 meters
+MyOptimum c323e9          SIGNAL: 54  EST_DIST: 1.58 meters
+MyOptimum 1360b1          SIGNAL: 57  EST_DIST: 1.26 meters
+                          SIGNAL:  7  EST_DIST: 58.43 meters
+MyOptimum 68a197          SIGNAL: 59  EST_DIST: 1.08 meters
+MyOptimum 68a197          SIGNAL: 67  EST_DIST: 0.58 meters
+MyOptimum 18d471          SIGNAL: 75  EST_DIST: 0.32 meters
+MyAltice 147295           SIGNAL: 78  EST_DIST: 0.25 meters
+MyOptimum 18d471          SIGNAL: 85  EST_DIST: 0.15 meters
+MyAltice 147295           SIGNAL: 97  EST_DIST: 0.06 meters
+DIRECT-A1-HP Smart Tank 7600 SIGNAL: 35  EST_DIST: 6.81 meters
+
+---- SCAN Fri Mar 27 04:33:03 AM UTC 2026 ----
+ATTyt4S37x                SIGNAL: 39  EST_DIST: 5.01 meters
+Bennyboo3000              SIGNAL: 44  EST_DIST: 3.41 meters
+BLINK-4LMM                SIGNAL: 45  EST_DIST: 3.16 meters
+BLINK-4LMM                SIGNAL: 47  EST_DIST: 2.71 meters
+Brumfield-5G              SIGNAL: 30  EST_DIST: 10.00 meters
+Brumfield-5G              SIGNAL: 44  EST_DIST: 3.41 meters
+Brumfield                 SIGNAL: 59  EST_DIST: 1.08 meters
+Brumfield                 SIGNAL: 60  EST_DIST: 1.00 meters
+CalieWifi                 SIGNAL: 75  EST_DIST: 0.32 meters
+CalieWifi                 SIGNAL: 79  EST_DIST: 0.23 meters
+CalieWifi                 SIGNAL: 90  EST_DIST: 0.10 meters
+CalieWifi                 SIGNAL: 97  EST_DIST: 0.06 meters
+DIRECT-48-HP OfficeJet 4650 SIGNAL: 35  EST_DIST: 6.81 meters
+DIRECT-roku-GU3-3A88FF    SIGNAL: 25  EST_DIST: 14.68 meters
+DIRECT-roku-GU3-3A88FF    SIGNAL: 37  EST_DIST: 5.84 meters
+kingsSmokeShop            SIGNAL: 50  EST_DIST: 2.15 meters
+Marco                     SIGNAL: 35  EST_DIST: 6.81 meters
+Marco                     SIGNAL: 42  EST_DIST: 3.98 meters
+Marco                     SIGNAL: 62  EST_DIST: 0.86 meters
+Marco                     SIGNAL: 75  EST_DIST: 0.32 meters
+MyAltice 147295           SIGNAL:100  EST_DIST: 0.05 meters
+MyAltice 147295           SIGNAL:100  EST_DIST: 0.05 meters
+NETGEAR16                 SIGNAL: 40  EST_DIST: 4.64 meters
+NETGEAR16                 SIGNAL: 42  EST_DIST: 3.98 meters
+NETGEAR68                 SIGNAL: 39  EST_DIST: 5.01 meters
+PROJd5d811                SIGNAL: 20  EST_DIST: 21.54 meters
+                          SIGNAL:100  EST_DIST: 0.05 meters
+                          SIGNAL:     EST_DIST: 100.00 meters
+TMOBILE-A1A1              SIGNAL: 22  EST_DIST: 18.48 meters
+Tmobile                   SIGNAL: 32  EST_DIST: 8.58 meters
+                          SIGNAL: 77  EST_DIST: 0.27 meters
+                          SIGNAL: 60  EST_DIST: 1.00 meters
+                          SIGNAL: 52  EST_DIST: 1.85 meters
+                          SIGNAL: 50  EST_DIST: 2.15 meters
+                          SIGNAL: 47  EST_DIST: 2.71 meters
+                          SIGNAL: 45  EST_DIST: 3.16 meters
+                          SIGNAL: 42  EST_DIST: 3.98 meters
+                          SIGNAL: 37  EST_DIST: 5.84 meters
+                          SIGNAL: 35  EST_DIST: 6.81 meters
+                          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 30  EST_DIST: 10.00 meters
+MyOptimum b59a61          SIGNAL: 14  EST_DIST: 34.15 meters
+                          SIGNAL: 22  EST_DIST: 18.48 meters
+MyOptimum 68a197          SIGNAL: 24  EST_DIST: 15.85 meters
+MyOptimum 1360b1          SIGNAL: 25  EST_DIST: 14.68 meters
+MyOptimum 6da165          SIGNAL: 25  EST_DIST: 14.68 meters
+MyOptimum 18d471          SIGNAL: 29  EST_DIST: 10.80 meters
+                          SIGNAL: 15  EST_DIST: 31.62 meters
+                          SIGNAL: 15  EST_DIST: 31.62 meters
+MyAltice 767ea5           SIGNAL: 34  EST_DIST: 7.36 meters
+MyOptimum f29bbd          SIGNAL: 37  EST_DIST: 5.84 meters
+MyOptimum 40e181          SIGNAL: 39  EST_DIST: 5.01 meters
+MyOptimum b59a61          SIGNAL: 44  EST_DIST: 3.41 meters
+MyOptimum 68a197          SIGNAL: 50  EST_DIST: 2.15 meters
+MyOptimum c323e9          SIGNAL: 50  EST_DIST: 2.15 meters
+MyOptimum c323e9          SIGNAL: 54  EST_DIST: 1.58 meters
+MyOptimum 1360b1          SIGNAL: 57  EST_DIST: 1.26 meters
+MyOptimum 68a197          SIGNAL: 62  EST_DIST: 0.86 meters
+MyOptimum 18d471          SIGNAL: 74  EST_DIST: 0.34 meters
+MyAltice 147295           SIGNAL: 78  EST_DIST: 0.25 meters
+MyOptimum 18d471          SIGNAL: 85  EST_DIST: 0.15 meters
+MyAltice 147295           SIGNAL: 90  EST_DIST: 0.10 meters
+
+---- SCAN Fri Mar 27 04:33:44 AM UTC 2026 ----
+ATTyt4S37x                SIGNAL: 39  EST_DIST: 5.01 meters
+Bennyboo3000              SIGNAL: 44  EST_DIST: 3.41 meters
+BLINK-4LMM                SIGNAL: 45  EST_DIST: 3.16 meters
+BLINK-4LMM                SIGNAL: 47  EST_DIST: 2.71 meters
+Brumfield-5G              SIGNAL: 30  EST_DIST: 10.00 meters
+Brumfield-5G              SIGNAL: 45  EST_DIST: 3.16 meters
+Brumfield                 SIGNAL: 59  EST_DIST: 1.08 meters
+Brumfield                 SIGNAL: 62  EST_DIST: 0.86 meters
+CalieWifi                 SIGNAL: 77  EST_DIST: 0.27 meters
+CalieWifi                 SIGNAL: 84  EST_DIST: 0.16 meters
+CalieWifi                 SIGNAL: 90  EST_DIST: 0.10 meters
+CalieWifi                 SIGNAL: 95  EST_DIST: 0.07 meters
+DIRECT-48-HP OfficeJet 4650 SIGNAL: 35  EST_DIST: 6.81 meters
+DIRECT-roku-GU3-3A88FF    SIGNAL: 24  EST_DIST: 15.85 meters
+DIRECT-roku-GU3-3A88FF    SIGNAL: 37  EST_DIST: 5.84 meters
+Marco                     SIGNAL: 34  EST_DIST: 7.36 meters
+Marco                     SIGNAL: 44  EST_DIST: 3.41 meters
+Marco                     SIGNAL: 64  EST_DIST: 0.74 meters
+Marco                     SIGNAL: 75  EST_DIST: 0.32 meters
+MyAltice 147295           SIGNAL:100  EST_DIST: 0.05 meters
+MyAltice 147295           SIGNAL:100  EST_DIST: 0.05 meters
+NETGEAR16                 SIGNAL: 40  EST_DIST: 4.64 meters
+NETGEAR16                 SIGNAL: 42  EST_DIST: 3.98 meters
+NETGEAR68                 SIGNAL: 39  EST_DIST: 5.01 meters
+PROJd5d811                SIGNAL: 20  EST_DIST: 21.54 meters
+                          SIGNAL:100  EST_DIST: 0.05 meters
+                          SIGNAL:     EST_DIST: 100.00 meters
+TMOBILE-A1A1              SIGNAL: 22  EST_DIST: 18.48 meters
+TMOBILE-B59B              SIGNAL: 30  EST_DIST: 10.00 meters
+Tmobile                   SIGNAL: 32  EST_DIST: 8.58 meters
+                          SIGNAL: 97  EST_DIST: 0.06 meters
+                          SIGNAL: 82  EST_DIST: 0.18 meters
+                          SIGNAL: 77  EST_DIST: 0.27 meters
+                          SIGNAL: 55  EST_DIST: 1.47 meters
+                          SIGNAL: 50  EST_DIST: 2.15 meters
+                          SIGNAL: 50  EST_DIST: 2.15 meters
+                          SIGNAL: 47  EST_DIST: 2.71 meters
+                          SIGNAL: 45  EST_DIST: 3.16 meters
+                          SIGNAL: 45  EST_DIST: 3.16 meters
+                          SIGNAL: 45  EST_DIST: 3.16 meters
+                          SIGNAL: 44  EST_DIST: 3.41 meters
+                          SIGNAL: 35  EST_DIST: 6.81 meters
+                          SIGNAL: 35  EST_DIST: 6.81 meters
+                          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 30  EST_DIST: 10.00 meters
+MyOptimum b59a61          SIGNAL: 14  EST_DIST: 34.15 meters
+MyOptimum c323e9          SIGNAL: 17  EST_DIST: 27.12 meters
+                          SIGNAL: 22  EST_DIST: 18.48 meters
+MyOptimum 68a197          SIGNAL: 20  EST_DIST: 21.54 meters
+MyOptimum 1360b1          SIGNAL: 27  EST_DIST: 12.59 meters
+MyOptimum 18d471          SIGNAL: 30  EST_DIST: 10.00 meters
+                          SIGNAL: 15  EST_DIST: 31.62 meters
+                          SIGNAL: 15  EST_DIST: 31.62 meters
+MyAltice 767ea5           SIGNAL: 34  EST_DIST: 7.36 meters
+MyOptimum b46d6f          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 14  EST_DIST: 34.15 meters
+MyOptimum 40e181          SIGNAL: 37  EST_DIST: 5.84 meters
+MyOptimum f29bbd          SIGNAL: 37  EST_DIST: 5.84 meters
+                          SIGNAL: 12  EST_DIST: 39.81 meters
+MyAltice 6d2721           SIGNAL: 40  EST_DIST: 4.64 meters
+MyOptimum b59a61          SIGNAL: 40  EST_DIST: 4.64 meters
+MyOptimum c323e9          SIGNAL: 50  EST_DIST: 2.15 meters
+MyOptimum c323e9          SIGNAL: 54  EST_DIST: 1.58 meters
+MyOptimum 68a197          SIGNAL: 55  EST_DIST: 1.47 meters
+MyOptimum 1360b1          SIGNAL: 57  EST_DIST: 1.26 meters
+MyOptimum 1360b1          SIGNAL: 59  EST_DIST: 1.08 meters
+MyOptimum 68a197          SIGNAL: 64  EST_DIST: 0.74 meters
+MyOptimum 18d471          SIGNAL: 74  EST_DIST: 0.34 meters
+MyAltice 147295           SIGNAL: 76  EST_DIST: 0.29 meters
+MyOptimum 18d471          SIGNAL: 85  EST_DIST: 0.15 meters
+MyAltice 147295           SIGNAL: 90  EST_DIST: 0.10 meters
+DIRECT-A1-HP Smart Tank 7600 SIGNAL: 35  EST_DIST: 6.81 meters
+
+---- SCAN Fri Mar 27 04:34:26 AM UTC 2026 ----
+Bennyboo3000              SIGNAL: 40  EST_DIST: 4.64 meters
+BLINK-4LMM                SIGNAL: 45  EST_DIST: 3.16 meters
+Brumfield-5G              SIGNAL: 30  EST_DIST: 10.00 meters
+Brumfield-5G              SIGNAL: 45  EST_DIST: 3.16 meters
+Brumfield                 SIGNAL: 60  EST_DIST: 1.00 meters
+CalieWifi                 SIGNAL: 79  EST_DIST: 0.23 meters
+CalieWifi                 SIGNAL: 79  EST_DIST: 0.23 meters
+CalieWifi                 SIGNAL: 90  EST_DIST: 0.10 meters
+CalieWifi                 SIGNAL: 95  EST_DIST: 0.07 meters
+DIRECT-roku-GU3-3A88FF    SIGNAL: 24  EST_DIST: 15.85 meters
+DIRECT-roku-GU3-3A88FF    SIGNAL: 39  EST_DIST: 5.01 meters
+kingsSmokeShop            SIGNAL: 54  EST_DIST: 1.58 meters
+Marco                     SIGNAL: 35  EST_DIST: 6.81 meters
+Marco                     SIGNAL: 40  EST_DIST: 4.64 meters
+Marco                     SIGNAL: 59  EST_DIST: 1.08 meters
+Marco                     SIGNAL: 75  EST_DIST: 0.32 meters
+MyAltice 147295           SIGNAL:100  EST_DIST: 0.05 meters
+MyAltice 147295           SIGNAL:100  EST_DIST: 0.05 meters
+                          SIGNAL:     EST_DIST: 100.00 meters
+Springer - Music          SIGNAL: 19  EST_DIST: 23.26 meters
+TMOBILE-3D12              SIGNAL: 24  EST_DIST: 15.85 meters
+TMOBILE-B59B              SIGNAL: 30  EST_DIST: 10.00 meters
+Tmobile                   SIGNAL: 29  EST_DIST: 10.80 meters
+                          SIGNAL: 97  EST_DIST: 0.06 meters
+                          SIGNAL: 95  EST_DIST: 0.07 meters
+                          SIGNAL: 82  EST_DIST: 0.18 meters
+                          SIGNAL: 77  EST_DIST: 0.27 meters
+                          SIGNAL: 60  EST_DIST: 1.00 meters
+                          SIGNAL: 52  EST_DIST: 1.85 meters
+                          SIGNAL: 49  EST_DIST: 2.33 meters
+                          SIGNAL: 47  EST_DIST: 2.71 meters
+                          SIGNAL: 45  EST_DIST: 3.16 meters
+                          SIGNAL: 45  EST_DIST: 3.16 meters
+                          SIGNAL: 44  EST_DIST: 3.41 meters
+                          SIGNAL: 40  EST_DIST: 4.64 meters
+                          SIGNAL: 40  EST_DIST: 4.64 meters
+                          SIGNAL: 40  EST_DIST: 4.64 meters
+                          SIGNAL: 37  EST_DIST: 5.84 meters
+                          SIGNAL: 35  EST_DIST: 6.81 meters
+                          SIGNAL: 35  EST_DIST: 6.81 meters
+                          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 30  EST_DIST: 10.00 meters
+MyOptimum c323e9          SIGNAL: 15  EST_DIST: 31.62 meters
+MyOptimum b59a61          SIGNAL: 17  EST_DIST: 27.12 meters
+                          SIGNAL: 22  EST_DIST: 18.48 meters
+MyOptimum 68a197          SIGNAL: 20  EST_DIST: 21.54 meters
+MyOptimum 1360b1          SIGNAL: 27  EST_DIST: 12.59 meters
+MyOptimum 18d471          SIGNAL: 30  EST_DIST: 10.00 meters
+                          SIGNAL: 15  EST_DIST: 31.62 meters
+MyAltice 767ea5           SIGNAL: 32  EST_DIST: 8.58 meters
+MyOptimum d66e7d          SIGNAL: 32  EST_DIST: 8.58 meters
+MyOptimum b46d6f          SIGNAL: 34  EST_DIST: 7.36 meters
+                          SIGNAL: 14  EST_DIST: 34.15 meters
+MyOptimum 36e4d7          SIGNAL: 37  EST_DIST: 5.84 meters
+MyOptimum 40e181          SIGNAL: 37  EST_DIST: 5.84 meters
+                          SIGNAL: 12  EST_DIST: 39.81 meters
+MyAltice 6d2721           SIGNAL: 42  EST_DIST: 3.98 meters
+MyOptimum b59a61          SIGNAL: 42  EST_DIST: 3.98 meters
+MyOptimum b59a61          SIGNAL: 45  EST_DIST: 3.16 meters
+MyOptimum f29bbd          SIGNAL: 45  EST_DIST: 3.16 meters
+MyOptimum c323e9          SIGNAL: 50  EST_DIST: 2.15 meters
+MyOptimum 68a197          SIGNAL: 55  EST_DIST: 1.47 meters
+MyOptimum 1360b1          SIGNAL: 57  EST_DIST: 1.26 meters
+MyOptimum c323e9          SIGNAL: 57  EST_DIST: 1.26 meters
+MyOptimum 1360b1          SIGNAL: 60  EST_DIST: 1.00 meters
+MyOptimum 68a197          SIGNAL: 62  EST_DIST: 0.86 meters
+MyOptimum 18d471          SIGNAL: 75  EST_DIST: 0.32 meters
+MyAltice 147295           SIGNAL: 79  EST_DIST: 0.23 meters
+MyOptimum 18d471          SIGNAL: 87  EST_DIST: 0.13 meters
+MyAltice 147295           SIGNAL: 90  EST_DIST: 0.10 meters
+DIRECT-A1-HP Smart Tank 7600 SIGNAL: 35  EST_DIST: 6.81 meters
+
+
+
+
 SSID:MyOptimum 1360b1 | BSSID:94\ | CH:4E\ | SIGNAL:5B\
 SSID: | BSSID:22\ | CH:3E\ | SIGNAL:A4\
 SSID: | BSSID:E2\ | CH:3E\ | SIGNAL:CB\
