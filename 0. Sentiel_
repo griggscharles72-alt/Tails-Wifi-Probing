@@ -1,0 +1,48 @@
+===== SENTINEL ENVIRONMENT SUMMARY =====
+Generated: Fri Mar 27 09:29:32 AM UTC 2026
+
+PRE-FLIGHT SYSTEM CHECK
+Source: /home/amnesia/sentinel_preflight/run_20260326_104531
+
+WIRELESS ENVIRONMENT SNAPSHOT
+Source: /home/amnesia/sentinel_logs/run_20260326_105640
+
+Visible Wi-Fi Networks:
+Total Networks Detected: 64
+
+Strongest Signals:
+*       MyAltice 147295               A4:CF:D2:14:72:99  149   5745 MHz  90      WPA2      
+*       MyAltice 147295   A4:CF:D2:14:72:99  149   5745 MHz  78      WPA2     
+        --                            A6:CF:D2:14:72:9C  149   5745 MHz  97      WPA3      
+        CalieWifi         A0:ED:6D:E4:6F:50  11    2462 MHz  95      WPA2     
+        CalieWifi                     A0:ED:6D:E4:6F:50  11    2462 MHz  87      WPA2      
+
+Open Networks (No Security):
+
+Local Network Neighbors:
+10.200.1.2 dev veth-tbb lladdr be:ca:8a:19:9b:1d REACHABLE 
+192.168.1.1 dev wlan1 lladdr a4:cf:d2:14:72:97 STALE 
+10.200.1.10 dev veth-tca lladdr 9a:d9:de:f9:96:f0 STALE 
+192.168.1.1 dev wlan0 lladdr a4:cf:d2:14:72:97 REACHABLE 
+
+Interface Traffic Summary:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    RX:  bytes packets errors dropped  missed   mcast           
+       3288656    8145      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+       3288656    8145      0       0       0       0 
+3: veth-tbb@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether 7a:4b:32:cd:f5:34 brd ff:ff:ff:ff:ff:ff link-netns tbb
+    RX:  bytes packets errors dropped  missed   mcast           
+      33219221  158324      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+     607672574  215048      0       0       0       0 
+5: veth-onioncircs@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether 8a:cc:c4:1e:81:ae brd ff:ff:ff:ff:ff:ff link-netns onioncircs
+    RX:  bytes packets errors dropped  missed   mcast           
+          1286      17      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+             0       0      0       0       0       0 
+7: veth-tca@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether de:50:cf:d5:14:d0 brd ff:ff:ff:ff:ff:ff link-netns tca
