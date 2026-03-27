@@ -1,7 +1,3 @@
-TOP ATTACKERS
-
-
-
 1.Location. How often they move.Times and dates: (SEE YOU SOON)
 
 Aisen’s Starlink        SIGNAL: 30  EST_DIST: 10.00 meters
@@ -240,10 +236,6 @@ MyAltice 147295           SIGNAL: 79  EST_DIST: 0.23 meters
 MyOptimum 18d471          SIGNAL: 87  EST_DIST: 0.13 meters
 MyAltice 147295           SIGNAL: 90  EST_DIST: 0.10 meters
 DIRECT-A1-HP Smart Tank 7600 SIGNAL: 35  EST_DIST: 6.81 meters
-
-
-A
-dditional Details From Attacker:
 
 
 SSID:MyOptimum 1360b1 | BSSID:94\ | CH:4E\ | SIGNAL:5B\
