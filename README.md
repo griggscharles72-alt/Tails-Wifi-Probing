@@ -173,6 +173,106 @@ Sentinel **V8 could add:**
 • **continuous radar scanning**
 • **alert when a new AP appears**
 • **signal strength tracking over time**
+Your scan hints at something interesting, but we should interpret it **carefully and conservatively**. Wi-Fi scans can show device types, but they **can’t prove what someone is doing** with them. What we can do is look at **likely device categories** based on SSIDs and manufacturers.
+
+---
+
+## 📷 Network that Looks Like a Camera or IoT Hub
+
+One entry that stands out:
+
+```
+Cameras  EC:75:0C:0D:B5:A2  CH 2  SIGNAL 35  WPA2
+```
+
+The SSID **“Cameras”** strongly suggests a device dedicated to cameras or a hub controlling them.
+
+Common possibilities:
+
+| Possibility              | Description                                                       |
+| ------------------------ | ----------------------------------------------------------------- |
+| Home security system hub | A base station for wireless cameras (e.g., Reolink, Arlo, etc.)   |
+| NVR with Wi-Fi           | Some network video recorders broadcast a Wi-Fi network            |
+| Setup / pairing network  | Cameras sometimes create a temporary network during configuration |
+
+The MAC prefix **EC:75:0C** belongs to manufacturers that make networking or embedded hardware used in IoT devices. That’s consistent with a **camera hub or similar appliance**, but it’s not definitive.
+
+---
+
+## 📺 Other IoT Devices Detected
+
+Your scan also picked up several consumer devices that commonly broadcast Wi-Fi networks:
+
+* **`DIRECT-1V-FireTV_377b`** → Amazon Fire TV device in pairing mode
+* **`DIRECT-roku-GU3-3A88FF`** → Roku streaming device
+* **`BLINK-4LMM`** → Blink camera pairing network
+* **`NETGEAR16`, `NETGEAR68`, etc.** → Home routers or extenders
+
+These appear when devices are:
+
+* in setup mode
+* offering Wi-Fi Direct
+* acting as small hotspots for configuration
+
+---
+
+## 📡 Why So Many Hidden Networks
+
+You saw many lines like:
+
+```
+-- 22:3E:A4:98:34:8C
+-- 5E:53:C3:C3:23:F0
+```
+
+Hidden SSIDs are common for:
+
+* mesh backhaul links
+* IoT device pairing channels
+* guest networks configured not to broadcast
+* router management radios
+
+In dense neighborhoods or apartments, seeing **dozens of hidden radios** is normal.
+
+---
+
+## 📊 What Your Environment Looks Like
+
+From your scan we can infer:
+
+* **Very dense Wi-Fi environment** (many routers nearby)
+* Mix of **consumer routers, mesh systems, and IoT devices**
+* Multiple **streaming devices and cameras** in nearby homes
+* Strong 5 GHz presence (channels 36–161)
+
+Nothing in the output indicates anything abnormal or malicious.
+
+---
+
+## 🔧 Small Improvement for Sentinel
+
+Your **band classification block** mis-labeled channel 11 as 5 GHz.
+Correct logic is:
+
+* **1–14 → 2.4 GHz**
+* **36+ → 5 GHz**
+
+If you want, I can show a tiny **2-line fix** for that block so Sentinel classifies bands correctly.
+
+---
+
+## 🚀 If you keep evolving Sentinel
+
+A useful next step would be a **clean summary block** at the end that prints something like:
+
+* number of networks detected
+* number of hidden networks
+* strongest network
+* most crowded channel
+
+That makes scans much easier to read.
+
+If you want, I can also show you a **compact “Sentinel V8 summary analyzer” block** that adds only ~20 lines but gives you a really nice overview of every scan.
 
 At that point your script becomes something similar to **Kismet-style wireless monitoring**.
 
